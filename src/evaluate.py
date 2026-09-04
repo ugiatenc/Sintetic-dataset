@@ -26,7 +26,9 @@ import jiwer
 from rapidfuzz.distance import JaroWinkler
 
 HERE = Path(__file__).resolve().parent
-INPUTS_DIR = HERE.parent.parent / "inputs/RNE"
+ROOT = HERE.parent
+INPUTS_DIR = ROOT / "lab/inputs/RNE"
+SALIDA_POR_DEFECTO = ROOT / "lab/entitats/entitats_fallades/entidades_erroneas.json"
 MODEL_STEM = "large-v3"
 OMITIDA = "[OMITIDA]"
 MAX_REGION = 6  # tokens del REF en una región de desalineamiento; por encima es
@@ -93,31 +95,61 @@ def similitud(correcta: str, variante: str) -> float:
     return max(JaroWinkler.similarity(a, b), JaroWinkler.similarity(fonetiza(a), fonetiza(b)))
 
 
-def similitud_del_cambio(entrada: str, correcta: str) -> float:
-    """Similitud del trozo PEOR emparejado entre los que de verdad cambian.
+def similitud_grafica(a: str, b: str) -> float:
+    """Similitud SOLO de grafía (Jaro-Winkler), sin el máximo fonético de `similitud()`.
 
-    Sirve para detectar cuando un LLM "corrige" el ground truth sustituyendo la
-    entidad por otra distinta en vez de arreglarle la grafía. La similitud global no
-    lo ve, porque las palabras compartidas la inflan: 'Japoel Tel Aviv' ->
-    'Maccabi Tel Aviv' puntúa 0.70 (dos equipos israelíes DISTINTOS) mientras que
-    'Maria Tressa' -> 'Maria Theresia von Paradis' puntúa 0.87 y es correcto.
-    Mirando solo lo que cambia, el primero cae a 0.44 y el segundo se queda en 0.70.
-
-    Una corrección legítima de grafía suena igual que el original (mouseti/Musetti,
-    vasconia/Baskonia, letour/Letur: todas >= 0.92); una sustitución por otra
-    entidad, no.
-    """
-    a, b = entrada.lower().split(), correcta.lower().split()
+    `similitud()` existe para el problema contrario: decidir si Whisper ha ACERTADO una
+    entidad aunque la escriba distinto ('viñas' -> 'víñez' suena igual). Aquí la pregunta
+    es la opuesta -- si un LLM ha REESCRITO una entidad por otra que solo se le parece --,
+    así que una coincidencia fonética con grafía distinta es precisamente la señal de
+    alarma que hay que conservar, no camuflar con un máximo."""
+    a, b = a.replace(" ", ""), b.replace(" ", "")
     if not a or not b:
         return 0.0
-    peor = 1.0
+    return JaroWinkler.similarity(a, b)
+
+
+def diagnosticar_cambio(entrada: str, correcta: str) -> dict:
+    """Diagnóstico de qué le ha hecho el LLM a `entrada` para producir `correcta`.
+
+    Sustituye a la antigua `similitud_del_cambio`, que solo miraba los tramos
+    SUSTITUIDOS (algo por algo) y de paso llamaba a `similitud()`, la métrica del
+    problema contrario (ver `similitud_grafica`). Se devuelven tres piezas porque cada
+    una se verifica con una regla distinta y ninguna sirve para las otras dos:
+
+      - sim_sustitucion: peor similitud GRÁFICA entre los tramos que se sustituyen de
+        verdad. Sigue cazando 'Japoel Tel Aviv' -> 'Maccabi Tel Aviv' (0.44, dos clubes
+        distintos) sin dejar pasar sustituciones fonéticamente parecidas pero mal
+        escritas ('Svereb' -> 'Sverev' da 0.93 igualmente: eso no lo resuelve una
+        métrica de grafía, hace falta una segunda opinión).
+      - insertados: palabras que trae `correcta` y no tenía `entrada`, en un tramo donde
+        NO hay nada sustituido (`entrada` no tenía ninguna palabra ahí). No hay nada con
+        que compararlas por grafía -- la única forma de verificarlas es comprobar que
+        el ground truth las respalda, y eso lo tiene que hacer quien conozca el GT.
+      - eliminados: palabras que `entrada` tenía y `correcta` quita sin sustituirlas por
+        nada. Puede ser limpieza legítima ('Pepa Millán Vox' -> 'Pepa Millán') o pérdida
+        de contenido real; tampoco es verificable por grafía sola.
+
+    Importante: un tramo `replace` (algo por algo, los dos lados no vacíos) cuenta SOLO
+    para `sim_sustitucion`, nunca para `insertados`/`eliminados` -- 'vasconia' ->
+    'Baskonia' es una sustitución de una palabra por otra, no borra 'vasconia' Y añade
+    'Baskonia' a la vez. Tratar cada `replace` como inserción+eliminación disparaba el
+    guardarraíl de "elimina contenido" en casi cualquier corrección de una sola palabra.
+    """
+    a, b = entrada.lower().split(), correcta.lower().split()
+    sim = 1.0
+    insertados, eliminados = [], []
     for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b).get_opcodes():
         if tag == "equal":
             continue
-        trozo_a, trozo_b = " ".join(a[i1:i2]), " ".join(b[j1:j2])
-        if trozo_a and trozo_b:
-            peor = min(peor, similitud(trozo_a, trozo_b))
-    return peor
+        trozo_a, trozo_b = a[i1:i2], b[j1:j2]
+        if tag == "replace":
+            sim = min(sim, similitud_grafica(" ".join(trozo_a), " ".join(trozo_b)))
+        elif tag == "insert":
+            insertados += trozo_b
+        elif tag == "delete":
+            eliminados += trozo_a
+    return {"sim_sustitucion": round(sim, 3), "insertados": insertados, "eliminados": eliminados}
 
 
 def load_raw(p: Path) -> str:
@@ -268,7 +300,11 @@ def run(output: Path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--output", default=str(HERE / "entidades_erroneas.json"),
-                        help="Fichero JSON de salida (default: entidades_erroneas.json en esta carpeta)")
+    # Por defecto escribe donde lo LEE `create_entities_list.ipynb`. Antes el default
+    # era `src/entidades_erroneas.json`, así que una ejecución limpia dejaba el fichero
+    # en un sitio y el notebook seguía leyendo la copia vieja de la otra carpeta.
+    parser.add_argument("--output", type=Path, default=SALIDA_POR_DEFECTO,
+                        help=f"Fichero JSON de salida (default: {SALIDA_POR_DEFECTO})")
     args = parser.parse_args()
-    run(Path(args.output))
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    run(args.output)

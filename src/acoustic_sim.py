@@ -462,6 +462,14 @@ class Entorn:
 # `styles` fa servir subcadenes en minuscules que es busquen dins del camp
 # `style` de cada frase, per no dependre del text literal exacte del prompt.
 ENTORNS: dict[str, Entorn] = {
+    "font_real": Entorn(
+        "font_real", "Veu de referencia ja gravada en condicions reals (p.ex. "
+        "corpus radiofonic/parlamentari): no s'hi afegeix sala ni soroll ni canal "
+        "per no duplicar-los sobre l'ambient que ja porta la clonacio -- nomes "
+        "es normalitza el nivell",
+        pes=0.0, sala=None, ambient=None, snr_db=None, canal=None,
+        styles=(),
+    ),
     "estudi_net": Entorn(
         "estudi_net", "Estudi net, sense sala ni ambient: la condicio de referencia",
         pes=2.0, sala=None, ambient=None, snr_db=None, canal="estudi",

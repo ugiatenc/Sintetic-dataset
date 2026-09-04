@@ -9,16 +9,26 @@ __pycache__/
 *.pt
 *.safetensors
 .env
+.vscode/
+.hf_cache/
+.pytest_cache/
 
 # Jupyter
 .ipynb_checkpoints/
 
 # OTHERS
+tests/
+data/
 others/
 datasets/
+lab/datasets/
 lab/entitats/
 lab/inputs/
 lab/outputs/
 lab/proves_inicials/
 lab/context_claude.md
+lab/generate_scenarios.ipynb
 **/config.ini
+
+# Cache de models de HuggingFace (la de ~/.cache/huggingface és de root en aquesta màquina)
+.hf_cache/
