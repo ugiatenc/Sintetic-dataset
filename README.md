@@ -39,15 +39,7 @@ ollama pull qwen3:14b        # alternativa local i gratuïta per a la fonètica
 
 **Camí B — ampliar dades genèriques**, independent del Camí A:
 
-1. `generate_scenarios.ipynb` → frases sense entitats, per domini/idioma
-
-**Comú a tots dos:** `generate_voices_environments.ipynb` → àudios finals. Llegeix
-qualsevol `.jsonl` amb `raw_text`/`tts_text`/`style`, el de `generate_sentences.ipynb`
-o el de `generate_scenarios.ipynb` (o tots dos combinats).
-
-Al Camí A, la cel·la del pas 5 es pot re-executar sola: llegeix de fitxers, no del kernel.
-
-`src/` només té funcions; l'orquestració viu als notebooks de `lab/`.
+TODO
 
 ---
 
@@ -111,17 +103,6 @@ llegiria malament. **Qui decideix fonètica és `dictionary.ipynb`, i només ell
 dataset hi apareixen entitats secundàries que necessitarien override (clubs, sigles,
 marques que el model introdueix pel camí), la manera d'arreglar-ho és afegir-les a la
 llista d'entitats i tornar a passar el diccionari, no reescriure-les a la frase.
-
-## Frases genèriques — `generate_scenarios.ipynb`
-
-Amplia dades **sense partir de cap entitat**: genera escenaris del domini (p.ex.
-"un corresponsal informa des d'una manifestació") i, per a cada un, frases diverses i
-versemblants. Útil quan l'objectiu no és reforçar una llista d'entitats concretes sinó
-tenir més parla d'un domini o idioma — el cas típic és un idioma amb pocs recursos.
-
-`tts_text` només difereix de `raw_text` en les xifres i els símbols, que s'expandeixen
-amb `phonetics.expandir_xifres` — el mateix pas determinista que la Fase 3 del Camí A.
-Sense un diccionari auditat darrere no hi ha res més concret a corregir.
 
 ## Veus i entorns — `generate_voices_environments.ipynb`
 
