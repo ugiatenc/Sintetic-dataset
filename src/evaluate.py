@@ -1,20 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Extrae las entidades (nombres propios) del Ground Truth RNE que el modelo
-Whisper large-v3 (default) transcribe mal, comparando cada transcripción
-contra su ground truth mediante alineamiento de palabras (jiwer).
-
-Para cada entidad fallida se cuenta cuántas veces aparece mal transcrita:
-  - Si el modelo la sustituye por otra palabra -> se registra la palabra errónea.
-  - Si el modelo la omite por completo -> se registra como "[OMITIDA]".
-
-Salida: JSON con la lista de entidades erróneas, agregada sobre los 4 audios.
-
-Uso:
-  python3 evaluate.py
-  python3 evaluate.py --output entidades_erroneas.json
-"""
+"""Evaluacion RNE (castellano): entidades del ground truth que el modelo transcribe mal."""
 import argparse
 import difflib
 import json
@@ -27,12 +13,11 @@ from rapidfuzz.distance import JaroWinkler
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-INPUTS_DIR = ROOT / "lab/inputs/RNE"
-SALIDA_POR_DEFECTO = ROOT / "lab/entitats/entitats_fallades/entidades_erroneas.json"
+INPUTS_DIR = ROOT / "data/es/text/inputs/RNE"
+SALIDA_POR_DEFECTO = ROOT / "data/es/entitats/entitats_fallades/entidades_erroneas.json"
 MODEL_STEM = "large-v3"
 OMITIDA = "[OMITIDA]"
-MAX_REGION = 6  # tokens del REF en una región de desalineamiento; por encima es
-                # desincronización grande (careta, música), no un fallo de entidad puntual
+MAX_REGION = 6
 
 PAIRS = [
     ("24_HORAS",       "r1_24_horas",                    INPUTS_DIR / "groundtruths/ground_truth_R1_24HORAS.json"),
@@ -41,9 +26,6 @@ PAIRS = [
     ("EL_ULTIMO_TREN", "r1_el_ultimo_tren",              INPUTS_DIR / "groundtruths/ground_truth_R1_EL-ULTIMO-TREN.json"),
 ]
 
-# ============================================================
-# NORMALIZACIÓN Y CARGA
-# ============================================================
 ACC = str.maketrans("áéíóúüàèìòù", "aeiouuaeiou")
 STOP = set("""el la los las un una y pero que como cuando donde porque para por con sin sobre entre
 desde hasta este esta estos estas ese esa esos esas su sus mi mis tu tus no si ya aqui alli ahi
@@ -54,24 +36,22 @@ mal senor senora don dona asi quien cual tras han hemos he has habia a en de o u
 
 
 def norm(text: str) -> str:
-    """Minúsculas + limpieza de puntuación. Mantiene tildes y 'ñ' a propósito:
-    así los fallos de acentuación (pais/país) también aparecen como sustituciones."""
+    """Minúsculas + limpieza de puntuación."""
     text = text.lower().strip()
     text = re.sub(r'\[.*?\]', '', text)
-    for c in [",", ".", "!", "¡", "?", "¿", ";", ":", '"', "'", "«", "»", "…", "—", "-", "(", ")"]:
+    for c in [",", ".", "!", "¡", "?", "¿", ";", ":", '"', "'", "\u2019", "\u2018",
+              "\u201c", "\u201d", "«", "»", "…", "—", "–", "-", "(", ")"]:
         text = text.replace(c, " ")
     return " ".join(text.split())
 
 
 def strip_accents(word: str) -> str:
+    """Quita los acentos de una palabra."""
     return word.translate(ACC)
 
 
 def fonetiza(palabra: str) -> str:
-    """Aproximación barata de grafía -> fonema del castellano: colapsa dígrafos y
-    letras que representan el mismo sonido para poder comparar sustituciones que
-    Whisper escribe distinto pero suenan igual ('krasznahorkai' / 'krasná jorkaj',
-    'climent' / 'kilming')."""
+    """Aproximación barata de grafía -> fonema del castellano."""
     s = strip_accents(palabra.lower())
     s = re.sub(r"[^a-zñ ]", "", s)
     s = s.replace("ch", "C").replace("ll", "Y").replace("qu", "k").replace("gu", "g")
@@ -80,15 +60,11 @@ def fonetiza(palabra: str) -> str:
     s = re.sub(r"g([ei])", r"x\1", s)
     s = s.replace("j", "x").replace("h", "").replace("ñ", "N").replace("w", "b")
     s = s.replace("y", "i").replace("Y", "y")
-    return re.sub(r"(.)\1+", r"\1", s)  # dobles
+    return re.sub(r"(.)\1+", r"\1", s)
 
 
 def similitud(correcta: str, variante: str) -> float:
-    """Similitud entidad <-> transcripción errónea, robusta a dos cosas que
-    Jaro-Winkler crudo no soporta: que Whisper fragmente/una la palabra distinto que
-    el GT ('radiogaceta' -> 'radio gaceta': se comparan sin espacios) y que la
-    sustitución sea fonética con grafía lejana ('viñas' -> 'víñez'): se toma el
-    máximo entre la similitud gráfica y la fonética."""
+    """Similitud entidad <-> transcripción errónea, robusta a dos cosas que Jaro-Winkler crudo no soporta."""
     a, b = correcta.replace(" ", ""), variante.replace(" ", "")
     if not a or not b:
         return 0.0
@@ -96,13 +72,7 @@ def similitud(correcta: str, variante: str) -> float:
 
 
 def similitud_grafica(a: str, b: str) -> float:
-    """Similitud SOLO de grafía (Jaro-Winkler), sin el máximo fonético de `similitud()`.
-
-    `similitud()` existe para el problema contrario: decidir si Whisper ha ACERTADO una
-    entidad aunque la escriba distinto ('viñas' -> 'víñez' suena igual). Aquí la pregunta
-    es la opuesta -- si un LLM ha REESCRITO una entidad por otra que solo se le parece --,
-    así que una coincidencia fonética con grafía distinta es precisamente la señal de
-    alarma que hay que conservar, no camuflar con un máximo."""
+    """Similitud SOLO de grafía (Jaro-Winkler), sin el máximo fonético de `similitud()`."""
     a, b = a.replace(" ", ""), b.replace(" ", "")
     if not a or not b:
         return 0.0
@@ -110,32 +80,7 @@ def similitud_grafica(a: str, b: str) -> float:
 
 
 def diagnosticar_cambio(entrada: str, correcta: str) -> dict:
-    """Diagnóstico de qué le ha hecho el LLM a `entrada` para producir `correcta`.
-
-    Sustituye a la antigua `similitud_del_cambio`, que solo miraba los tramos
-    SUSTITUIDOS (algo por algo) y de paso llamaba a `similitud()`, la métrica del
-    problema contrario (ver `similitud_grafica`). Se devuelven tres piezas porque cada
-    una se verifica con una regla distinta y ninguna sirve para las otras dos:
-
-      - sim_sustitucion: peor similitud GRÁFICA entre los tramos que se sustituyen de
-        verdad. Sigue cazando 'Japoel Tel Aviv' -> 'Maccabi Tel Aviv' (0.44, dos clubes
-        distintos) sin dejar pasar sustituciones fonéticamente parecidas pero mal
-        escritas ('Svereb' -> 'Sverev' da 0.93 igualmente: eso no lo resuelve una
-        métrica de grafía, hace falta una segunda opinión).
-      - insertados: palabras que trae `correcta` y no tenía `entrada`, en un tramo donde
-        NO hay nada sustituido (`entrada` no tenía ninguna palabra ahí). No hay nada con
-        que compararlas por grafía -- la única forma de verificarlas es comprobar que
-        el ground truth las respalda, y eso lo tiene que hacer quien conozca el GT.
-      - eliminados: palabras que `entrada` tenía y `correcta` quita sin sustituirlas por
-        nada. Puede ser limpieza legítima ('Pepa Millán Vox' -> 'Pepa Millán') o pérdida
-        de contenido real; tampoco es verificable por grafía sola.
-
-    Importante: un tramo `replace` (algo por algo, los dos lados no vacíos) cuenta SOLO
-    para `sim_sustitucion`, nunca para `insertados`/`eliminados` -- 'vasconia' ->
-    'Baskonia' es una sustitución de una palabra por otra, no borra 'vasconia' Y añade
-    'Baskonia' a la vez. Tratar cada `replace` como inserción+eliminación disparaba el
-    guardarraíl de "elimina contenido" en casi cualquier corrección de una sola palabra.
-    """
+    """Diagnóstico de qué le ha hecho el LLM a `entrada` para producir `correcta`."""
     a, b = entrada.lower().split(), correcta.lower().split()
     sim = 1.0
     insertados, eliminados = [], []
@@ -153,6 +98,7 @@ def diagnosticar_cambio(entrada: str, correcta: str) -> dict:
 
 
 def load_raw(p: Path) -> str:
+    """Lee el texto de referencia (txt o json)."""
     if p.suffix.lower() == ".txt":
         return p.read_text(encoding="utf-8")
     d = json.load(open(p, encoding="utf-8"))
@@ -179,17 +125,8 @@ def entity_set(raw: str):
     return ent
 
 
-# ============================================================
-# ALINEAMIENTO
-# ============================================================
 def align(ref: str, hyp: str):
-    """Agrupa el alineamiento por REGIÓN, no por token. jiwer da chunks 'substitute'/
-    'delete' de igual longitud a ambos lados (N ref <-> N hyp) y alinearlos posición
-    a posición parte una palabra que Whisper fragmenta ('radiogaceta' -> 'radio
-    gaceta') dejando la entidad emparejada solo con el último fragmento ('gaceta',
-    similitud 0 con la entidad completa). Aquí se agrupa toda racha de chunks no-
-    'equal' consecutivos y se devuelve el span REF completo junto al span HYP
-    completo, para comparar 'radiogaceta' contra 'radio gaceta' en vez de 'gaceta'."""
+    """Agrupa el alineamiento por REGIÓN, no por token."""
     measures = jiwer.process_words(ref, hyp)
     rw, hw = ref.split(), hyp.split()
     chunks = measures.alignments[0]
@@ -209,11 +146,7 @@ def align(ref: str, hyp: str):
 
 
 def _reparto_posicional(hyp_tokens: list, n: int) -> list:
-    """Divide `hyp_tokens` en `n` bloques contiguos lo más parejos posible,
-    preservando el orden. Sirve para cuando una región mezcla varias entidades
-    ('camp nou' -> 'can know'): el span entero diluye la señal de cada una
-    ('camp' vs 'can know' = 0.59), pero la entidad de turno suele corresponder
-    a su bloque por posición ('camp' vs 'can' = 0.78)."""
+    """Divide `hyp_tokens` en `n` bloques contiguos lo más parejos posible, preservando el orden."""
     base, extra = divmod(len(hyp_tokens), n)
     grupos, i = [], 0
     for k in range(n):
@@ -224,6 +157,7 @@ def _reparto_posicional(hyp_tokens: list, n: int) -> list:
 
 
 def find_hypothesis(stem: str) -> Path:
+    """Busca la transcripcion del modelo para un stem."""
     transcripciones = INPUTS_DIR / "transcriptions"
     for candidate in (transcripciones / f"{stem}_{MODEL_STEM}.json", transcripciones / f"{stem}_{MODEL_STEM}_words.json"):
         if candidate.exists():
@@ -245,10 +179,8 @@ def to_json(resultado) -> str:
     return "\n".join(lines)
 
 
-# ============================================================
-# LÓGICA PRINCIPAL
-# ============================================================
 def run(output: Path):
+    """Evalua todas las referencias y escribe el informe."""
     errores = Counter()
 
     for name, stem, gt_path in PAIRS:
@@ -269,7 +201,7 @@ def run(output: Path):
         n_fallos = 0
         for ref_tokens, hyp_tokens in align(ref, hyp):
             if len(ref_tokens) > MAX_REGION:
-                continue  # desincronización grande, no un fallo de entidad puntual
+                continue
             afectadas_idx = [i for i, t in enumerate(ref_tokens) if t in ent]
             if not afectadas_idx:
                 continue
@@ -300,9 +232,6 @@ def run(output: Path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    # Por defecto escribe donde lo LEE `create_entities_list.ipynb`. Antes el default
-    # era `src/entidades_erroneas.json`, así que una ejecución limpia dejaba el fichero
-    # en un sitio y el notebook seguía leyendo la copia vieja de la otra carpeta.
     parser.add_argument("--output", type=Path, default=SALIDA_POR_DEFECTO,
                         help=f"Fichero JSON de salida (default: {SALIDA_POR_DEFECTO})")
     args = parser.parse_args()

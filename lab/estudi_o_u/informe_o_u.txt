@@ -1,0 +1,168 @@
+# ESTUDI ACUSTIC o/u — 472 clips reals de Common Voice (test), 82 locutors
+# classe del fonema reconegut (wav2vec2 espeak): U=[u ʊ], O=[o ɔ], Y=[y ø], A, E, I; cons=consonant; -=cap fonema solapat
+
+lletra o/ó (regla o->u)                n= 711 vocal= 699 | [u]  76.8% (IC95 74-80) | [o/ɔ]  21.7% | altres: Y:2 A:2 E:3 I:3 cons:12
+   o/ó sense vocal veïna               n= 646 vocal= 635 | [u]  79.8% (IC95 77-83) | [o/ɔ]  18.9% | altres: Y:2 A:2 E:3 I:1 cons:11
+   o/ó en diftong (ou, oi, io, oa...)  n=  65 vocal=  64 | [u]  46.9% (IC95 35-59) | [o/ɔ]  50.0% | altres: I:2 cons:1
+   o/ó TONICA (estimada)               n= 417 vocal= 409 | [u]  73.3% (IC95 69-77) | [o/ɔ]  25.2% | altres: A:1 E:2 I:3 cons:8
+   o/ó ATONA (estimada)                n= 294 vocal= 290 | [u]  81.7% (IC95 77-86) | [o/ɔ]  16.9% | altres: Y:2 A:1 E:1 cons:4
+   o final de mot (jo, lo, Mario)      n=  40 vocal=  39 | [u]  76.9% (IC95 62-87) | [o/ɔ]  23.1% | altres: cons:1
+   o inicial de mot (on, ombra)        n=  29 vocal=  25 | [u]  76.0% (IC95 57-89) | [o/ɔ]  24.0% | altres: cons:4
+   o en mot funcional (non, tot, vos, jo...) n= 202 vocal= 198 | [u]  84.3% (IC95 79-89) | [o/ɔ]  14.6% | altres: A:1 I:1 cons:4
+   o en mot de contingut               n= 509 vocal= 501 | [u]  73.9% (IC95 70-78) | [o/ɔ]  24.6% | altres: Y:2 A:1 E:3 I:2 cons:8
+   o en NOM PROPI (majuscula no inicial) n=  62 vocal=  62 | [u]  51.6% (IC95 39-64) | [o/ɔ]  46.8% | altres: A:1
+
+CONTROL lletra ò (esperat [ɔ])         n= 229 vocal= 226 | [u]   3.1% (IC95 2-6) | [o/ɔ]  96.0% | altres: A:2 cons:3
+CONTROL lletra u (esperat [y])         n=1003 vocal= 570 | [u]  43.7% (IC95 40-48) | [o/ɔ]   1.1% | altres: Y:115 A:14 E:116 I:70 cons:433
+CONTROL lletra a (esperat [a])         n=2249 vocal=2191 | [u]   0.2% (IC95 0-1) | [o/ɔ]   1.0% | altres: Y:1 A:2112 E:44 I:6 cons:58
+
+# formants (mediana F1/F2 Hz) per lletra i classe sentida:
+   o/ó sentida [u]        n= 537  F1  404  F2  1049
+   o/ó sentida [o/ɔ]      n= 152  F1  470  F2  1108
+   ò sentida [o/ɔ]        n= 217  F1  602  F2  1135
+   ò sentida [u]          n=   7  F1  436  F2  1285
+   u sentida [y]          n= 115  F1  329  F2  1970
+   u sentida [u]          n= 249  F1  416  F2  1021
+   a                      n=2112  F1  731  F2  1557
+
+# per MOT (o/ó, nomes vocals reconegudes), mots amb n>=4, ordenats per % [o]:
+   senhora          n=  4  [u]     0%  [o]   100%  altres 0
+   responec         n=  4  [u]    25%  [o]    75%  altres 0
+   raskolnikov      n=  4  [u]    25%  [o]    75%  altres 0
+   senhor           n= 14  [u]    50%  [o]    50%  altres 0
+   moment           n=  6  [u]    50%  [o]    50%  altres 0
+   votz             n=  5  [u]    60%  [o]    40%  altres 0
+   o                n=  5  [u]    60%  [o]    40%  altres 0
+   coma             n= 16  [u]    62%  [o]    38%  altres 0
+   non              n= 73  [u]    81%  [o]    18%  altres 1
+   son              n=  6  [u]    83%  [o]    17%  altres 0
+   tot              n= 16  [u]    88%  [o]    12%  altres 0
+   lo               n= 10  [u]    90%  [o]    10%  altres 0
+   vos              n= 11  [u]    91%  [o]     9%  altres 0
+   conven           n=  4  [u]   100%  [o]     0%  altres 0
+   jo               n= 11  [u]   100%  [o]     0%  altres 0
+   toti             n= 10  [u]   100%  [o]     0%  altres 0
+   solet            n=  4  [u]   100%  [o]     0%  altres 0
+   donc             n=  4  [u]   100%  [o]     0%  altres 0
+   tostemp          n=  5  [u]   100%  [o]     0%  altres 0
+   mos              n=  4  [u]   100%  [o]     0%  altres 0
+
+# NOMS PROPIS amb o/ó (tots):
+   Alberto        U x1
+   Aliosha        O x1
+   Aliosha        U x2
+   Baloup         U x1
+   Bovary         U x1
+   Colmenero      U x2
+   Comdessa       U x1
+   Copons         U x2
+   Cosette        U x1
+   Dolly          O x1
+   Fenton         O x1
+   Fiódorovich    O x3
+   Ford           O x1
+   Gottier        U x1
+   Gravroche      O x1
+   Hugomons       O x1
+   Hugomons       U x1
+   Ivanovna       O x1
+   Jorgen         O x1
+   Jorun          O x1
+   Kalganov       O x1
+   Kolia          O x1
+   Lombardo       O x1
+   Lombardo       U x1
+   Louvre         U x1
+   Mario          O x1
+   Marmeladov     O x1
+   Miloradovic    A x1
+   Miloradovic    O x1
+   Mokroie        O x1
+   Mokroie        U x1
+   Onorat         U x2
+   Polenka        U x1
+   Provincias     U x1
+   Raskolnikov    O x3
+   Raskolnikov    U x1
+   Rastopchin     U x1
+   Rodolphe       O x2
+   Roger          U x1
+   Roma           U x1
+   Romèu          U x1
+   Rostov         O x1
+   Rostov         U x1
+   Septentrion    U x1
+   Simonovitch    O x1
+   Simonovitch    U x1
+   Sofia          O x1
+   Superiora      U x1
+   Tònho          O x1
+   Varsovia       U x1
+   Vasco          U x1
+   Vascongadas    O x1
+   Zosima         U x1
+
+# per LOCUTOR (o/ó vocals, n>=12): % [u]
+   414e6caa n= 24 [u]    58%  [o]    42%
+   f8a113f2 n= 13 [u]    62%  [o]    38%
+   4a5c1d25 n= 12 [u]    67%  [o]    33%
+   40f0683e n= 40 [u]    70%  [o]    28%
+   9639fd6a n= 14 [u]    71%  [o]    29%
+   1bcdef2f n= 39 [u]    72%  [o]    26%
+   915b9a94 n= 40 [u]    72%  [o]    28%
+   cb1841cf n= 37 [u]    73%  [o]    27%
+   376f704b n= 16 [u]    75%  [o]    25%
+   32ee0daf n= 28 [u]    79%  [o]    18%
+   8ecd7b8f n= 15 [u]    80%  [o]    20%
+   dc229663 n= 21 [u]    81%  [o]    10%
+   d85a5bf9 n= 54 [u]    81%  [o]    17%
+   adf20e86 n= 23 [u]    83%  [o]    17%
+   45423eae n= 20 [u]    85%  [o]    15%
+   2e666200 n= 15 [u]    87%  [o]    13%
+   9eed9bb5 n= 27 [u]    89%  [o]    11%
+   b0a3c514 n= 46 [u]    89%  [o]    11%
+   f435453a n= 15 [u]    93%  [o]     7%
+   6d145e0e n= 28 [u]    96%  [o]     4%
+   locutors amb >=12 o: 20 | mediana % [u] = 79 | min 58 | locutors amb [u] < 70%: 3
+
+# EXEMPLES de o/ó sentida com [o/ɔ] (mot, fonema, F1, clip):
+   vos              o   F1  459 tonica=True c_36544929.wav
+   consumís         o   F1  416 tonica=False c_36575793.wav
+   tot              o   F1  505 tonica=True c_36575793.wav
+   sauvacion        o   F1  431 tonica=True c_36575949.wav
+   senhora          o   F1  312 tonica=True c_36627274.wav
+   Non              o   F1  505 tonica=True c_36659129.wav
+   coma             o   F1  441 tonica=True c_36664074.wav
+   moments          o   F1  378 tonica=False c_36669276.wav
+   Napoleon         o   F1  412 tonica=False c_36670839.wav
+   Feijoo           o   F1  552 tonica=False c_36671304.wav
+   persones         o   F1  480 tonica=True c_36671304.wav
+   Lombardo         o   F1  431 tonica=False c_36671374.wav
+   senhora          o   F1  518 tonica=True c_36672598.wav
+   governador       o   F1  439 tonica=False c_36672968.wav
+   governador       o   F1  449 tonica=True c_36672968.wav
+   senhora          o   F1  443 tonica=True c_36677806.wav
+   Vascongadas      o   F1  482 tonica=False c_36680203.wav
+   moment           o   F1  393 tonica=False c_36682323.wav
+   ordes            ɔ   F1  643 tonica=True c_36694710.wav
+   votz             oː  F1  625 tonica=True c_36694710.wav
+   non              o   F1  518 tonica=True c_36704250.wav
+   Non              o   F1  304 tonica=True c_36706971.wav
+   situacion        o   F1  317 tonica=True c_36706971.wav
+   o                o   F1  560 tonica=True c_36706972.wav
+   rabiós           o   F1  314 tonica=True c_36706972.wav
+   misteriós        o   F1  328 tonica=True c_36706972.wav
+   vision           o   F1  282 tonica=True c_36706974.wav
+   senhor           o   F1  561 tonica=True c_36813352.wav
+   religioses       o   F1  468 tonica=True c_36814318.wav
+   somics           o   F1  391 tonica=False c_36820699.wav
+   sufocacion       o   F1  364 tonica=True c_36820699.wav
+   non              o   F1  578 tonica=True c_36820864.wav
+   observèc         o   F1  443 tonica=False c_36950535.wav
+   consternacion    o   F1  467 tonica=True c_36950535.wav
+   Sofia            o   F1  394 tonica=True c_36973071.wav
+   Mokroie          o   F1  680 tonica=False c_36973105.wav
+   manifestacion    o   F1  412 tonica=True c_37316972.wav
+   lego             o   F1  619 tonica=False c_36499964.wav
+   contra           o   F1  860 tonica=True c_36499973.wav
+   Aliosha          o   F1  521 tonica=True c_36517257.wav

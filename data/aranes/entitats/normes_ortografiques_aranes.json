@@ -1,0 +1,174 @@
+{
+  "_meta": {
+    "descripcio": "Regles per reescriure text ARANÈS en ortografia CATALANA, de manera que OmniVoice amb language='ca' el pronunciï com l'aranès. NO és una transcripció fonètica: és la taula de conversió d'un pipeline de TTS.",
+    "us": "raw_text = aranès real (ground truth del dataset). tts_text = resultat d'aplicar aquestes regles (només el llegeix el TTS, mai surt al dataset). Les aplica `src/respelling.py`.",
+    "font": "Conselh Generau d'Aran, 'Ua lengua normalizada' -- https://www.conselharan.org/es/ua-lengua-normalizada/. Les Normes Ortogràfiques de l'Aranès es van aprovar el 1983.",
+    "principi": "Només s'hi posen les regles que el codi pot aplicar SENSE context. L'única que en necessita (-ns de plural) rep la llista de plurals des de fora; veure 'regles_amb_context'.",
+    "idioma_tts": "ca",
+    "data": "2026-09-21"
+  },
+  "regles": [
+    {
+      "id": "nh",
+      "grafia": "nh",
+      "ipa": "ɲ",
+      "catala": "ny",
+      "aplicacio": "automatica",
+      "exemples": [
+        [
+          "nhèu",
+          "nyèu"
+        ],
+        [
+          "Escunhau",
+          "Escunyau"
+        ],
+        [
+          "montanha",
+          "montanya"
+        ]
+      ],
+      "nota": "Equivalència directa: el català escriu 'ny' exactament aquest so."
+    },
+    {
+      "id": "lh",
+      "grafia": "lh",
+      "ipa": "ʎ",
+      "catala": "ll",
+      "aplicacio": "automatica",
+      "exemples": [
+        [
+          "hilh",
+          "hill"
+        ],
+        [
+          "Vielha",
+          "Viella"
+        ]
+      ],
+      "nota": "Equivalència directa."
+    },
+    {
+      "id": "sh",
+      "grafia": "sh",
+      "ipa": "ʃ",
+      "catala": "x (inici de mot o darrere consonant) / ix (darrere vocal)",
+      "aplicacio": "automatica",
+      "exemples": [
+        [
+          "shivau",
+          "xivau"
+        ],
+        [
+          "peish",
+          "peix"
+        ],
+        [
+          "deishar",
+          "deixar"
+        ]
+      ],
+      "nota": "Darrere vocal cal 'ix', perquè una 'x' entre vocals en català es pot llegir [ks] ('examen'). Si la vocal de davant ja és una 'i', el dígraf ja està format i només cal la 'x': `peish` -> `peix`, no `peiix`."
+    },
+    {
+      "id": "o_a_u",
+      "grafia": "o, ó",
+      "ipa": "u",
+      "catala": "u, ú",
+      "aplicacio": "automatica",
+      "exemples": [
+        [
+          "solei",
+          "sulei"
+        ],
+        [
+          "Benós",
+          "Benús"
+        ],
+        [
+          "tot",
+          "tut"
+        ],
+        [
+          "condar",
+          "cundar"
+        ],
+        [
+          "cooperacion",
+          "cooperaciun"
+        ]
+      ],
+      "nota": "La regla que més canvia el text. En aranès la 'o' és SEMPRE [u], també quan és tònica; el català central només la tanca en àtona. La 'ò' (oberta) NO s'hi inclou mai. Cap 'o' que produiria un 'uu' no es toca, perquè és una grafia que el TTS no sap llegir: ni la de 'ou' ni la de 'oo' (17/09/2026: sobre el corpus sencer, `cooperacion` donava `cuuperaciun`). No cal fer-hi res més, perquè el català ja redueix la 'o' àtona a [u] i el TTS ja hi diu el que toca."
+    },
+    {
+      "id": "punt_volat_h",
+      "grafia": "n·h, s·h",
+      "ipa": "n + h aspirada, s + h aspirada",
+      "catala": "n, s (es treu el ·h)",
+      "aplicacio": "automatica",
+      "exemples": [
+        [
+          "en·honsar",
+          "enunsar"
+        ],
+        [
+          "des·huellar",
+          "desuellar"
+        ]
+      ],
+      "nota": "El punt volat marca que la h és ASPIRADA i que `nh` no és el dígraf [ɲ]. El TTS català només coneix `l·l` i no té cap manera de dir una h aspirada (com tampoc a `hèr` o `hemna`): es treu el `·h` i queda la consonant. Cal fer-ho ABANS de la regla `nh` → `ny`, perquè sense el punt el `nh` resultant es convertiria en `ny`, que és exactament el que el punt evita. 654 frases del corpus (21/09)."
+    }
+  ],
+  "regles_amb_context": [
+    {
+      "id": "ns_plural",
+      "grafia": "-ns (només en PLURALS)",
+      "ipa": "s (la n emmudeix)",
+      "catala": "-s, amb accent a l'última vocal",
+      "aplicacio": "necessita_llista_de_plurals",
+      "exemples": [
+        [
+          "camins",
+          "camís"
+        ],
+        [
+          "vesins",
+          "vesís"
+        ],
+        [
+          "catalans",
+          "catalàs"
+        ]
+      ],
+      "nota": "La font ho diu només per als plurals: 'En las plurales -n- es muda: camins [ka'mis]'. Aplicar-ho a tot mot acabat en -ns és un error: `mens`, `abans` o `sens` no són plurals i es convertirien en `més`, `abàs`, `sés`. Com que la marca de plural no es pot deduir de la grafia, la llista de mots plurals es passa des de fora (la decideix un LLM, un cop per mot, i es desa). L'accent cal perquè en català un mot acabat en -s sense accent porta l'accent a la penúltima síl·laba, i `camis` sonaria ['kamis] en comptes de [ka'mis]."
+    }
+  ],
+  "no_aplicades": [
+    {
+      "grafia": "th",
+      "motiu": "No cal. La 'h' és muda en català, així que `eth` ja es llegeix [et] i `audèth` [aw'dɛt] sense tocar-hi res. Els pocs mots on `th` és [tʃ] (`còth`) no compensen la complexitat."
+    },
+    {
+      "grafia": "h muda",
+      "motiu": "No cal: la 'h' també és muda en català."
+    },
+    {
+      "grafia": "-n final ([ŋ])",
+      "motiu": "No s'aplica. Escriure '-ng' (`camin` -> `caming`) obliga el TTS a una grafia forçada i el risc que hi afegeixi una [g] audible no compensa la diferència entre [n] i [ŋ]."
+    },
+    {
+      "grafia": "u, ú ([y])",
+      "motiu": "De moment no s'hi fa res. El català no té el so [y] ni cap grafia per representar-lo. Queda com a pèrdua coneguda, pendent de decidir."
+    },
+    {
+      "grafia": "ò, è, e, é, a",
+      "motiu": "Es queden igual: el català ja té els mateixos sons amb les mateixes grafies ('ò' [ɔ], 'è' [ɛ]), i la 'a' final àtona ja es redueix a [ə]."
+    }
+  ],
+  "ordre_aplicacio": [
+    "0. punt volat: n·h / s·h -> n / s (abans dels digrafs)",
+    "1. dígrafs: nh, lh, sh",
+    "2. -ns de plural (només els mots de la llista de plurals)",
+    "3. vocals: o/ó -> u/ú, respectant sempre 'ò' i el dígraf 'ou'"
+  ]
+}

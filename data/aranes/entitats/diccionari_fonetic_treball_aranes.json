@@ -1,0 +1,5221 @@
+{
+ "_meta": {
+  "idioma": "aranes",
+  "etapa": "treball",
+  "generat": "2026-09-21T19:09:34",
+  "n_entrades": 1042,
+  "n_revisades": 0
+ },
+ "entrades": {
+  "III": {
+   "fonetica": "tres",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIX": {
+   "fonetica": "vint-e-nau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIII": {
+   "fonetica": "ueit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVI": {
+   "fonetica": "setze",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VII": {
+   "fonetica": "sèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVIII": {
+   "fonetica": "dètz-e-ueit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIV": {
+   "fonetica": "catorze",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXI": {
+   "fonetica": "trenta un",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIII": {
+   "fonetica": "vint-e-tres",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXII": {
+   "fonetica": "vint-e-dus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXI": {
+   "fonetica": "vint-e-un",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XII": {
+   "fonetica": "dotze",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIV": {
+   "fonetica": "vint-e-quate",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVII": {
+   "fonetica": "dètz-e-sèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIII": {
+   "fonetica": "tretze",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HAMLET": {
+   "fonetica": "Hamlet",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EMD": {
+   "fonetica": "e ema de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DOGC": {
+   "fonetica": "de o ge ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RFEDI": {
+   "fonetica": "erra efa e de i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAEI": {
+   "fonetica": "Caei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ROMÈU": {
+   "fonetica": "Romèu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FALSTAFF": {
+   "fonetica": "Falstaff",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEGVA": {
+   "fonetica": "Cegva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EVANS": {
+   "fonetica": "Evans",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEVA": {
+   "fonetica": "Ceva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JULIETA": {
+   "fonetica": "Julieta",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SL": {
+   "fonetica": "essa ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BOP": {
+   "fonetica": "Bop",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "POLÒNI": {
+   "fonetica": "Polòni",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAPULETO": {
+   "fonetica": "Capuleto",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AGAUR": {
+   "fonetica": "Agaur",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CLAUDI": {
+   "fonetica": "Claudi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEI": {
+   "fonetica": "Cei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UE": {
+   "fonetica": "u e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HORACI": {
+   "fonetica": "Horaci",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ONU": {
+   "fonetica": "Onu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNESCO": {
+   "fonetica": "Unesco",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DNI": {
+   "fonetica": "de ena i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "QUICKLY": {
+   "fonetica": "Quickly",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CETEI": {
+   "fonetica": "Cetei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GERTRUDIS": {
+   "fonetica": "Gertrudis",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GPS": {
+   "fonetica": "ge pe essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SABS": {
+   "fonetica": "Sabs",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FCEH": {
+   "fonetica": "efa ce e hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TV": {
+   "fonetica": "te ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OFELIA": {
+   "fonetica": "Ofelia",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PSC": {
+   "fonetica": "pe essa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FCB": {
+   "fonetica": "efa ce be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MERCUTIO": {
+   "fonetica": "Mercutio",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BENVOLIO": {
+   "fonetica": "Benvolio",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PP": {
+   "fonetica": "pe pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RICARD": {
+   "fonetica": "Ricard",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SLENDER": {
+   "fonetica": "Slender",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IEA": {
+   "fonetica": "i e a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GRM": {
+   "fonetica": "ge erra ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SHALLOW": {
+   "fonetica": "Shallow",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INS": {
+   "fonetica": "Ins",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEPAP": {
+   "fonetica": "Cepap",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAIUS": {
+   "fonetica": "Caius",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LAERTES": {
+   "fonetica": "Laertes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CGA": {
+   "fonetica": "ce ge a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FIS": {
+   "fonetica": "Fis",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BTT": {
+   "fonetica": "be te te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ETEVA": {
+   "fonetica": "Eteva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UB": {
+   "fonetica": "u be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ADN": {
+   "fonetica": "a de ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "URSS": {
+   "fonetica": "u erra essa essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IES": {
+   "fonetica": "i e essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NIE": {
+   "fonetica": "ena i e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XANA": {
+   "fonetica": "Xana",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UTMB": {
+   "fonetica": "u te ema be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GS": {
+   "fonetica": "ge essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SBX": {
+   "fonetica": "essa be ics",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PIB": {
+   "fonetica": "Pib",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NSCP": {
+   "fonetica": "ena essa ce pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PARIS": {
+   "fonetica": "Paris",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BCE": {
+   "fonetica": "be ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "POCTEFA": {
+   "fonetica": "Poctefa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UAB": {
+   "fonetica": "u a be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CCMA": {
+   "fonetica": "ce ce ema a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AMPA": {
+   "fonetica": "Ampa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PRAG": {
+   "fonetica": "Prag",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RCD": {
+   "fonetica": "erra ce de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TEOBALDO": {
+   "fonetica": "Teobaldo",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ADDA": {
+   "fonetica": "Adda",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CHE": {
+   "fonetica": "Che",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDA": {
+   "fonetica": "ce de a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ERC": {
+   "fonetica": "e erra ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PSOE": {
+   "fonetica": "Psoe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EUA": {
+   "fonetica": "e u a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CUP": {
+   "fonetica": "Cup",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "QR": {
+   "fonetica": "cu erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COE": {
+   "fonetica": "Coe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PCR": {
+   "fonetica": "pe ce erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SWIM": {
+   "fonetica": "Swim",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OSIC": {
+   "fonetica": "Osic",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GLP": {
+   "fonetica": "ge ela pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PORCIA": {
+   "fonetica": "Porcia",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IRTA": {
+   "fonetica": "Irta",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACA": {
+   "fonetica": "a ce a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IEC": {
+   "fonetica": "i e ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AECC": {
+   "fonetica": "a e ce ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISU": {
+   "fonetica": "i essa u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEAU": {
+   "fonetica": "Ceau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "POUM": {
+   "fonetica": "Poum",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENRIC": {
+   "fonetica": "Enric",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SEBC": {
+   "fonetica": "essa e be ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GUILHÈM": {
+   "fonetica": "Guilhèm",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FITUR": {
+   "fonetica": "Fitur",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SMS": {
+   "fonetica": "essa ema essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CSD": {
+   "fonetica": "ce essa de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RBU": {
+   "fonetica": "erra be u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAMSON": {
+   "fonetica": "Samson",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SPIP": {
+   "fonetica": "Spip",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEO": {
+   "fonetica": "ce e o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SIAH": {
+   "fonetica": "Siah",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COVID": {
+   "fonetica": "Covid",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SEM": {
+   "fonetica": "Sem",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MARNATON": {
+   "fonetica": "Marnaton",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SMC": {
+   "fonetica": "essa ema ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDIA": {
+   "fonetica": "ce de i a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HTML": {
+   "fonetica": "hac te ema ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MARCÈL": {
+   "fonetica": "Marcèl",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BERNARD": {
+   "fonetica": "Bernard",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GREGÒRI": {
+   "fonetica": "Gregòri",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NASA": {
+   "fonetica": "Nasa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FIFA": {
+   "fonetica": "Fifa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEDER": {
+   "fonetica": "Feder",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IDAPA": {
+   "fonetica": "Idapa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACM": {
+   "fonetica": "a ce ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ZER": {
+   "fonetica": "Zer",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ONG": {
+   "fonetica": "o ena ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FC": {
+   "fonetica": "efa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FWT": {
+   "fonetica": "efa ve doble te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SG": {
+   "fonetica": "essa ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UDL": {
+   "fonetica": "u de ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICEC": {
+   "fonetica": "Icec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACG": {
+   "fonetica": "a ce ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RSU": {
+   "fonetica": "erra essa u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SHYLOCK": {
+   "fonetica": "Shylock",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FENTON": {
+   "fonetica": "Fenton",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NYM": {
+   "fonetica": "Nym",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANTÒNI": {
+   "fonetica": "Antòni",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BASSANIO": {
+   "fonetica": "Bassanio",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OTAN": {
+   "fonetica": "Otan",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HMS": {
+   "fonetica": "hac ema essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UFEC": {
+   "fonetica": "Ufec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEIP": {
+   "fonetica": "Ceip",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DJ": {
+   "fonetica": "de jota",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LGTBI": {
+   "fonetica": "ela ge te be i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICGC": {
+   "fonetica": "i ce ge ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AALO": {
+   "fonetica": "a a ela o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACB": {
+   "fonetica": "a ce be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FTVA": {
+   "fonetica": "efa te ve a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEDME": {
+   "fonetica": "Fedme",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CHJ": {
+   "fonetica": "ce hac jota",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PEIN": {
+   "fonetica": "Pein",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "REINALD": {
+   "fonetica": "Reinald",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANNA": {
+   "fonetica": "Anna",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BARDOLF": {
+   "fonetica": "Bardolf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BALTASAR": {
+   "fonetica": "Baltasar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "URL": {
+   "fonetica": "u erra ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARNt": {
+   "fonetica": "a erra ena te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIA": {
+   "fonetica": "ce i a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IPC": {
+   "fonetica": "i pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VDA": {
+   "fonetica": "ve de a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EAWS": {
+   "fonetica": "e a ve doble essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DEA": {
+   "fonetica": "Dea",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIH": {
+   "fonetica": "ve i hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAOC": {
+   "fonetica": "Caoc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CRP": {
+   "fonetica": "ce erra pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAVA": {
+   "fonetica": "Sava",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PROCICAT": {
+   "fonetica": "Procicat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KIVA": {
+   "fonetica": "Kiva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IP": {
+   "fonetica": "i pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ALSA": {
+   "fonetica": "Alsa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DAAM": {
+   "fonetica": "Daam",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CNJSE": {
+   "fonetica": "ce ena jota essa e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENTREPYR": {
+   "fonetica": "Entrepyr",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RDPH": {
+   "fonetica": "erra de pe hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAC": {
+   "fonetica": "Cac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ETP": {
+   "fonetica": "e te pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CHA": {
+   "fonetica": "Cha",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SS": {
+   "fonetica": "essa essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CTP": {
+   "fonetica": "ce te pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PDA": {
+   "fonetica": "pe de a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PUOSC": {
+   "fonetica": "Puosc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LORA": {
+   "fonetica": "Lora",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACT": {
+   "fonetica": "a ce te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNED": {
+   "fonetica": "Uned",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAeD": {
+   "fonetica": "Saed",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JJOO": {
+   "fonetica": "jota jota o o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EAP": {
+   "fonetica": "e a pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HELP": {
+   "fonetica": "Help",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TQ": {
+   "fonetica": "te cu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OPA": {
+   "fonetica": "Opa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "URV": {
+   "fonetica": "u erra ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COI": {
+   "fonetica": "Coi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ESO": {
+   "fonetica": "Eso",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DUPROCIM": {
+   "fonetica": "Duprocim",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RAE": {
+   "fonetica": "Rae",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FCN": {
+   "fonetica": "efa ce ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EELL": {
+   "fonetica": "e e ela ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UCI": {
+   "fonetica": "Uci",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PC": {
+   "fonetica": "pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BOE": {
+   "fonetica": "Boe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UGT": {
+   "fonetica": "u ge te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CP": {
+   "fonetica": "ce pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EP": {
+   "fonetica": "e pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FWQ": {
+   "fonetica": "efa ve doble cu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AUDI": {
+   "fonetica": "Audi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANTONIO": {
+   "fonetica": "Antonio",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEFUC": {
+   "fonetica": "Cefuc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICCA": {
+   "fonetica": "Icca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANUNCI": {
+   "fonetica": "Anunci",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SLU": {
+   "fonetica": "essa ela u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICREA": {
+   "fonetica": "Icrea",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NERISSA": {
+   "fonetica": "Nerissa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CBS": {
+   "fonetica": "ce be essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PCE": {
+   "fonetica": "pe ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PS": {
+   "fonetica": "pe essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CICR": {
+   "fonetica": "ce i ce erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RFA": {
+   "fonetica": "erra efa a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BM": {
+   "fonetica": "be ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NBA": {
+   "fonetica": "ena be a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GRU": {
+   "fonetica": "ge erra u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "WLB": {
+   "fonetica": "ve doble ela be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FN": {
+   "fonetica": "efa ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IEO": {
+   "fonetica": "i e o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDH": {
+   "fonetica": "ce de hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "USVA": {
+   "fonetica": "Usva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RTVE": {
+   "fonetica": "erra te ve e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIT": {
+   "fonetica": "Cit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GRAF": {
+   "fonetica": "Graf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DOA": {
+   "fonetica": "Doa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AUT": {
+   "fonetica": "a u te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FCC": {
+   "fonetica": "efa ce ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AEFA": {
+   "fonetica": "Aefa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ADESP": {
+   "fonetica": "Adesp",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BCIL": {
+   "fonetica": "be ce i ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BCIN": {
+   "fonetica": "be ce i ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AFA": {
+   "fonetica": "Afa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EMD's": {
+   "fonetica": "e ema de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PL": {
+   "fonetica": "pe ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OMT": {
+   "fonetica": "o ema te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DARP": {
+   "fonetica": "Darp",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CN": {
+   "fonetica": "ce ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UIC": {
+   "fonetica": "u i ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANC": {
+   "fonetica": "a ena ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VW": {
+   "fonetica": "ve ve doble",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DTI": {
+   "fonetica": "de te i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATC": {
+   "fonetica": "a te ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIFALC": {
+   "fonetica": "Cifalc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PICEM": {
+   "fonetica": "Picem",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "USA": {
+   "fonetica": "u essa a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OGE": {
+   "fonetica": "o ge e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MWC": {
+   "fonetica": "ema ve doble ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IDESP": {
+   "fonetica": "Idesp",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MATRC": {
+   "fonetica": "ema a te erra ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NIF": {
+   "fonetica": "Nif",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGPEIS": {
+   "fonetica": "de ge pe e i essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GRAE": {
+   "fonetica": "Grae",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SCT": {
+   "fonetica": "essa ce te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CSC": {
+   "fonetica": "ce essa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PDU": {
+   "fonetica": "pe de u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EEUU": {
+   "fonetica": "e e u u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SNOWFEST": {
+   "fonetica": "Snowfest",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEEC": {
+   "fonetica": "Feec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEDH": {
+   "fonetica": "efa e de hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ADEFFA": {
+   "fonetica": "Adeffa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MAYENCOS": {
+   "fonetica": "Mayencos",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEDPC": {
+   "fonetica": "efa e de pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EDAR": {
+   "fonetica": "Edar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IVA": {
+   "fonetica": "Iva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NSP": {
+   "fonetica": "ena essa pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PTPAPA": {
+   "fonetica": "pe te pe a pe a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IPCENA": {
+   "fonetica": "Ipcena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LOGSE": {
+   "fonetica": "Logse",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JOAN": {
+   "fonetica": "Joan",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SERRANO": {
+   "fonetica": "Serrano",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CNN": {
+   "fonetica": "ce ena ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GRACIAN": {
+   "fonetica": "Gracian",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "WILLIAM": {
+   "fonetica": "William",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JESSICA": {
+   "fonetica": "Jessica",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SOLANIO": {
+   "fonetica": "Solanio",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MONTESCO": {
+   "fonetica": "Montesco",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "APORLOC": {
+   "fonetica": "Aporloc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PÈIR": {
+   "fonetica": "Pèir",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FTP": {
+   "fonetica": "efa te pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNICEF": {
+   "fonetica": "Unicef",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICRC": {
+   "fonetica": "i ce erra ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "USS": {
+   "fonetica": "u essa essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ZIF": {
+   "fonetica": "Zif",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BTN": {
+   "fonetica": "be te ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VPN": {
+   "fonetica": "ve pe ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HBO": {
+   "fonetica": "hac be o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NTSC": {
+   "fonetica": "ena te essa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GNU": {
+   "fonetica": "Gnu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGPS": {
+   "fonetica": "de ge pe essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PSD": {
+   "fonetica": "pe essa de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GFP": {
+   "fonetica": "ge efa pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IAC": {
+   "fonetica": "i a ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BIRF": {
+   "fonetica": "Birf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AIPAC": {
+   "fonetica": "Aipac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RCA": {
+   "fonetica": "erra ce a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RF": {
+   "fonetica": "erra efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CECOR": {
+   "fonetica": "Cecor",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATTA": {
+   "fonetica": "Atta",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GPR": {
+   "fonetica": "ge pe erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CREDA": {
+   "fonetica": "Creda",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACCESSIT": {
+   "fonetica": "Accessit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FMIT": {
+   "fonetica": "efa ema i te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DANA": {
+   "fonetica": "Dana",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICTUS": {
+   "fonetica": "Ictus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IAE": {
+   "fonetica": "i a e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TDT": {
+   "fonetica": "te de te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CCOO": {
+   "fonetica": "ce ce o o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TEA": {
+   "fonetica": "Tea",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EMDs": {
+   "fonetica": "e ema de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FP": {
+   "fonetica": "efa pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INCASOL": {
+   "fonetica": "Incasol",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TSD": {
+   "fonetica": "te essa de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PMA": {
+   "fonetica": "pe ema a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RECICLOS": {
+   "fonetica": "Reciclos",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GREIM": {
+   "fonetica": "Greim",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TSJC": {
+   "fonetica": "te essa jota ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIRDOC": {
+   "fonetica": "Cirdoc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SIDA": {
+   "fonetica": "Sida",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TERMCAT": {
+   "fonetica": "Termcat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "WII": {
+   "fonetica": "Wii",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEDDF": {
+   "fonetica": "efa e de de efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PATRIARQ": {
+   "fonetica": "Patriarq",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MNAC": {
+   "fonetica": "Mnac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DIPLOCAT": {
+   "fonetica": "Diplocat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SEGITTUR": {
+   "fonetica": "Segittur",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TESVA": {
+   "fonetica": "Tesva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AEMET": {
+   "fonetica": "Aemet",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AAA": {
+   "fonetica": "a a a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CiU": {
+   "fonetica": "Ciu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GC": {
+   "fonetica": "ge ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PNRI": {
+   "fonetica": "pe ena erra i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UPC": {
+   "fonetica": "u pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MECR": {
+   "fonetica": "Mecr",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SW": {
+   "fonetica": "essa ve doble",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EAPC": {
+   "fonetica": "e a pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IXESP": {
+   "fonetica": "i ics e essa pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AEAT": {
+   "fonetica": "a e a te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CCE": {
+   "fonetica": "ce ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PPA": {
+   "fonetica": "pe pe a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RB": {
+   "fonetica": "erra be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CANMC": {
+   "fonetica": "ce a ena ema ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MITECO": {
+   "fonetica": "Miteco",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PIMEC": {
+   "fonetica": "Pimec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PTT": {
+   "fonetica": "pe te te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INEF": {
+   "fonetica": "Inef",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PNV": {
+   "fonetica": "pe ena ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BBVA": {
+   "fonetica": "be be ve a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ABC": {
+   "fonetica": "a be ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PIRENEUS": {
+   "fonetica": "Pireneus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COPOS": {
+   "fonetica": "Copos",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KGB": {
+   "fonetica": "ca ge be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PIE": {
+   "fonetica": "Pie",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ESCALARAN": {
+   "fonetica": "Escalaran",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LEADER": {
+   "fonetica": "Leader",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATES": {
+   "fonetica": "Ates",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SENDIF": {
+   "fonetica": "Sendif",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CECAT": {
+   "fonetica": "Cecat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEEI": {
+   "fonetica": "Ceei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LIMNOPIRINEUS": {
+   "fonetica": "Limnopirineus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENDESA": {
+   "fonetica": "Endesa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PEC": {
+   "fonetica": "Pec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SCIJ": {
+   "fonetica": "essa ce i jota",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CENA": {
+   "fonetica": "Cena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UTE": {
+   "fonetica": "Ute",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CRS": {
+   "fonetica": "ce erra essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BERET": {
+   "fonetica": "Beret",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ALLEM": {
+   "fonetica": "Allem",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAT": {
+   "fonetica": "Sat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TC": {
+   "fonetica": "te ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BERRYSAR": {
+   "fonetica": "Berrysar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BOPL": {
+   "fonetica": "be o pe ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ITAM": {
+   "fonetica": "Itam",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LOREG": {
+   "fonetica": "Loreg",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAD": {
+   "fonetica": "Cad",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ZEPA": {
+   "fonetica": "Zepa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EFTE": {
+   "fonetica": "e efa te e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OJD": {
+   "fonetica": "o jota de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SARMA": {
+   "fonetica": "Sarma",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONFEDERACIÓN": {
+   "fonetica": "Confederación",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HIDROGRÁFICA": {
+   "fonetica": "Hidrográfica",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EBRO": {
+   "fonetica": "Ebro",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CFGS": {
+   "fonetica": "ce efa ge essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACPC": {
+   "fonetica": "a ce pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EDE": {
+   "fonetica": "Ede",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IUFM": {
+   "fonetica": "i u efa ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MARIA": {
+   "fonetica": "Maria",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GÓMEZ": {
+   "fonetica": "Gómez",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JUAN": {
+   "fonetica": "Juan",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GARONA": {
+   "fonetica": "Garona",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MAITE": {
+   "fonetica": "Maite",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BAYO": {
+   "fonetica": "Bayo",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MIR": {
+   "fonetica": "Mir",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TN": {
+   "fonetica": "te ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAMPULETO": {
+   "fonetica": "Campuleto",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "APEU": {
+   "fonetica": "Apeu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MSZP": {
+   "fonetica": "ema essa zeta pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GOBBO": {
+   "fonetica": "Gobbo",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISTE": {
+   "fonetica": "Iste",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AELC": {
+   "fonetica": "a e ela ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VMs": {
+   "fonetica": "ve ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SMERDIAKOV": {
+   "fonetica": "Smerdiakov",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LANCELOT": {
+   "fonetica": "Lancelot",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ABRAHAM": {
+   "fonetica": "Abraham",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAMALIGA": {
+   "fonetica": "Camaliga",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FRANCESC": {
+   "fonetica": "Francesc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UICN": {
+   "fonetica": "u i ce ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANAMARIA": {
+   "fonetica": "Anamaria",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MEDAN": {
+   "fonetica": "Medan",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SANMARTIN": {
+   "fonetica": "Sanmartin",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ST": {
+   "fonetica": "essa te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICE": {
+   "fonetica": "Ice",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FAQ": {
+   "fonetica": "Faq",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PNB": {
+   "fonetica": "pe ena be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PBI": {
+   "fonetica": "pe be i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PKK": {
+   "fonetica": "pe ca ca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RASD": {
+   "fonetica": "Rasd",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NEP": {
+   "fonetica": "Nep",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LDAP": {
+   "fonetica": "ela de a pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OPEP": {
+   "fonetica": "Opep",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CBP": {
+   "fonetica": "ce be pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JONS": {
+   "fonetica": "Jons",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OCDE": {
+   "fonetica": "o ce de e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OMC": {
+   "fonetica": "o ema ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IBM": {
+   "fonetica": "i be ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TGV": {
+   "fonetica": "te ge ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PSOL": {
+   "fonetica": "Psol",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GPL": {
+   "fonetica": "ge pe ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HTC": {
+   "fonetica": "hac te ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISO": {
+   "fonetica": "Iso",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IWW": {
+   "fonetica": "i ve doble ve doble",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FEMEN": {
+   "fonetica": "Femen",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PHP": {
+   "fonetica": "pe hac pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COC": {
+   "fonetica": "Coc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IVAM": {
+   "fonetica": "Ivam",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PCUS": {
+   "fonetica": "pe ce u essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ZEE": {
+   "fonetica": "Zee",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AP": {
+   "fonetica": "a pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UEFA": {
+   "fonetica": "Uefa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PPU": {
+   "fonetica": "pe pe u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KDE": {
+   "fonetica": "ca de e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RGB": {
+   "fonetica": "erra ge be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CECA": {
+   "fonetica": "Ceca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FARC": {
+   "fonetica": "Farc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACNUR": {
+   "fonetica": "Acnur",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XP": {
+   "fonetica": "ics pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LSD": {
+   "fonetica": "ela essa de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNIVAC": {
+   "fonetica": "Univac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FAI": {
+   "fonetica": "Fai",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RSS": {
+   "fonetica": "erra essa essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RSFSR": {
+   "fonetica": "erra essa efa essa erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEN": {
+   "fonetica": "Cen",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FRELIMO": {
+   "fonetica": "Frelimo",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SNC": {
+   "fonetica": "essa ena ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SNCF": {
+   "fonetica": "essa ena ce efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CERN": {
+   "fonetica": "Cern",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GNOME": {
+   "fonetica": "Gnome",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HR": {
+   "fonetica": "hac erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEE": {
+   "fonetica": "ce e e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FBI": {
+   "fonetica": "efa be i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FM": {
+   "fonetica": "efa ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EFE": {
+   "fonetica": "Efe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CPU": {
+   "fonetica": "ce pe u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FMI": {
+   "fonetica": "efa ema i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNAM": {
+   "fonetica": "Unam",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ÑO": {
+   "fonetica": "Ño",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TSJ": {
+   "fonetica": "te essa jota",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NUTS": {
+   "fonetica": "Nuts",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXIII": {
+   "fonetica": "trenta tres",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VM": {
+   "fonetica": "ve ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IEI": {
+   "fonetica": "Iei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EOI": {
+   "fonetica": "e o i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DVD": {
+   "fonetica": "de ve de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ILC": {
+   "fonetica": "i ela ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CTFC": {
+   "fonetica": "ce te efa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGPL": {
+   "fonetica": "de ge pe ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CI": {
+   "fonetica": "cent un",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PLATER": {
+   "fonetica": "Plater",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IVE": {
+   "fonetica": "Ive",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDIAP": {
+   "fonetica": "Cdiap",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CV": {
+   "fonetica": "ce ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIC": {
+   "fonetica": "ce i ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ODISSEU": {
+   "fonetica": "Odisseu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FIGAN": {
+   "fonetica": "Figan",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ADOC": {
+   "fonetica": "Adoc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DIM": {
+   "fonetica": "Dim",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SILVESTRE": {
+   "fonetica": "Silvestre",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LOPD": {
+   "fonetica": "ela o pe de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TRANSCAT": {
+   "fonetica": "Transcat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JEEC": {
+   "fonetica": "jota e e ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ESADE": {
+   "fonetica": "Esade",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACC": {
+   "fonetica": "a ce ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LIC": {
+   "fonetica": "Lic",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UP": {
+   "fonetica": "u pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MdVA": {
+   "fonetica": "ema de ve a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ID": {
+   "fonetica": "i de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CC": {
+   "fonetica": "dus cents",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "II": {
+   "fonetica": "dus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IV": {
+   "fonetica": "quate",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XX": {
+   "fonetica": "vint",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VI": {
+   "fonetica": "sies",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XI": {
+   "fonetica": "onze",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IX": {
+   "fonetica": "nau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JeanValjean": {
+   "fonetica": "Jeanvaljean",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OVIHUEC": {
+   "fonetica": "Ovihuec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MASSI": {
+   "fonetica": "Massi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PM": {
+   "fonetica": "pe ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PNA": {
+   "fonetica": "pe ena a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXV": {
+   "fonetica": "vint-e-cinc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NNSS": {
+   "fonetica": "ena ena essa essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ALERT": {
+   "fonetica": "Alert",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PYR": {
+   "fonetica": "pe i grega erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NCG": {
+   "fonetica": "ena ce ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KUWAIT": {
+   "fonetica": "Kuwait",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CYCLING": {
+   "fonetica": "Cycling",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PROJECT": {
+   "fonetica": "Project",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVI": {
+   "fonetica": "vint-e-sies",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PADDLE": {
+   "fonetica": "Paddle",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IIIau": {
+   "fonetica": "tresau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IIau": {
+   "fonetica": "dusau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIIau": {
+   "fonetica": "dotzau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIVau": {
+   "fonetica": "catorzau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIXau": {
+   "fonetica": "dètz-e-nauau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIau": {
+   "fonetica": "onzau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIau": {
+   "fonetica": "vint-e-unau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVIIIau": {
+   "fonetica": "vint-e-ueitau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IRPF": {
+   "fonetica": "i erra pe efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EACAT": {
+   "fonetica": "Eacat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "APA": {
+   "fonetica": "Apa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INUNCAT": {
+   "fonetica": "Inuncat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NEUCAT": {
+   "fonetica": "Neucat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ZCC": {
+   "fonetica": "zeta ce ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARNm": {
+   "fonetica": "a erra ena ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANYWHERE": {
+   "fonetica": "Anywhere",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ITB": {
+   "fonetica": "i te be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGPC": {
+   "fonetica": "de ge pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RCP": {
+   "fonetica": "erra ce pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FANOC": {
+   "fonetica": "Fanoc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SPEEM": {
+   "fonetica": "Speem",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIIIau": {
+   "fonetica": "vint-e-tresau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EDARS": {
+   "fonetica": "Edars",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIXau": {
+   "fonetica": "vint-e-nauau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIIau": {
+   "fonetica": "setau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TAF": {
+   "fonetica": "Taf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IBI": {
+   "fonetica": "Ibi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "WINDSOR": {
+   "fonetica": "Windsor",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SLA": {
+   "fonetica": "Sla",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MaB": {
+   "fonetica": "Mab",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAR": {
+   "fonetica": "Sar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TdR": {
+   "fonetica": "te de erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PFI": {
+   "fonetica": "pe efa i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MAPHU": {
+   "fonetica": "Maphu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KMI": {
+   "fonetica": "ca ema i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INEFC": {
+   "fonetica": "Inefc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PVC": {
+   "fonetica": "pe ve ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BEG": {
+   "fonetica": "Beg",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGCE": {
+   "fonetica": "de ge ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MUF": {
+   "fonetica": "Muf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGU": {
+   "fonetica": "de ge u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FORTIMBRÀS": {
+   "fonetica": "Fortimbràs",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXII": {
+   "fonetica": "trenta dus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IVTM": {
+   "fonetica": "i ve te ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IVau": {
+   "fonetica": "quatau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISSW": {
+   "fonetica": "i essa essa ve doble",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DG": {
+   "fonetica": "de ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EAC": {
+   "fonetica": "e a ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXIIau": {
+   "fonetica": "trenta dusau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IoT": {
+   "fonetica": "i o te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MTB": {
+   "fonetica": "ema te be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SCAran": {
+   "fonetica": "essa ce a erra a ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EPIREMED": {
+   "fonetica": "Epiremed",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CRIS": {
+   "fonetica": "Cris",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UME": {
+   "fonetica": "Ume",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FR": {
+   "fonetica": "efa erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COHDA": {
+   "fonetica": "Cohda",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATUDEM": {
+   "fonetica": "Atudem",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EMI": {
+   "fonetica": "Emi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVIII": {
+   "fonetica": "vint-e-ueit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DNA": {
+   "fonetica": "de ena a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVIIau": {
+   "fonetica": "vint-e-setau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVII": {
+   "fonetica": "vint-e-sèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PDUVA": {
+   "fonetica": "pe de u ve a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXau": {
+   "fonetica": "vintau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ECOEMBES": {
+   "fonetica": "Ecoembes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVIIIau": {
+   "fonetica": "dètz-e-ueitau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COAC": {
+   "fonetica": "Coac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "WC": {
+   "fonetica": "ve doble ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACNA": {
+   "fonetica": "Acna",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EIBTs": {
+   "fonetica": "e i be te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OTDYKH": {
+   "fonetica": "Otdykh",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LUXURY": {
+   "fonetica": "Luxury",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GUM": {
+   "fonetica": "Gum",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BBK": {
+   "fonetica": "be be ca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CFA": {
+   "fonetica": "ce efa a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UAO": {
+   "fonetica": "Uao",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEU": {
+   "fonetica": "ce e u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGCEC": {
+   "fonetica": "de ge ce e ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FGC": {
+   "fonetica": "efa ge ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HABIOS": {
+   "fonetica": "Habios",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FOTO": {
+   "fonetica": "Foto",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ORIOL": {
+   "fonetica": "Oriol",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EIA": {
+   "fonetica": "Eia",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UCS": {
+   "fonetica": "u ce essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MITIA": {
+   "fonetica": "Mitia",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RDA": {
+   "fonetica": "erra de a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SALT": {
+   "fonetica": "Salt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UU": {
+   "fonetica": "u u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATP": {
+   "fonetica": "a te pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SNP": {
+   "fonetica": "essa ena pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIX": {
+   "fonetica": "dètz-e-nau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XV": {
+   "fonetica": "quinze",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HUB": {
+   "fonetica": "Hub",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEC": {
+   "fonetica": "ce e ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LED": {
+   "fonetica": "Led",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ANEC": {
+   "fonetica": "Anec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CA": {
+   "fonetica": "ce a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TAC": {
+   "fonetica": "Tac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GLO": {
+   "fonetica": "ge ela o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TIC": {
+   "fonetica": "Tic",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LIFE": {
+   "fonetica": "Life",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OMS": {
+   "fonetica": "o ema essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IA": {
+   "fonetica": "i a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TS": {
+   "fonetica": "te essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PAUMS": {
+   "fonetica": "Paums",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NYSE": {
+   "fonetica": "ena i grega essa e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATWS": {
+   "fonetica": "a te ve doble essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIO": {
+   "fonetica": "ce i o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAMU": {
+   "fonetica": "Samu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAD": {
+   "fonetica": "Sad",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ETSA": {
+   "fonetica": "e te essa a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EIBT": {
+   "fonetica": "e i be te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PCM": {
+   "fonetica": "pe ce ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CER": {
+   "fonetica": "Cer",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MOOC": {
+   "fonetica": "Mooc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JDC": {
+   "fonetica": "jota de ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAVA": {
+   "fonetica": "Cava",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TCE": {
+   "fonetica": "te ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CH": {
+   "fonetica": "ce hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LV": {
+   "fonetica": "ela ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ROAS": {
+   "fonetica": "Roas",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INTERREG": {
+   "fonetica": "Interreg",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FAO": {
+   "fonetica": "Fao",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KWF": {
+   "fonetica": "ca ve doble efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DIN": {
+   "fonetica": "Din",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AA": {
+   "fonetica": "a a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GR": {
+   "fonetica": "ge erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISMF": {
+   "fonetica": "i essa ema efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GSTOP": {
+   "fonetica": "Gstop",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVau": {
+   "fonetica": "vint-e-cincau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TRANS": {
+   "fonetica": "Trans",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICIC": {
+   "fonetica": "i ce i ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OTAA": {
+   "fonetica": "Otaa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TUE": {
+   "fonetica": "te u e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RT": {
+   "fonetica": "erra te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GER": {
+   "fonetica": "ge e erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACORA": {
+   "fonetica": "Acora",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DUN": {
+   "fonetica": "Dun",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JJ": {
+   "fonetica": "jota jota",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OO": {
+   "fonetica": "o o",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GORE": {
+   "fonetica": "Gore",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TEX": {
+   "fonetica": "Tex",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ROF": {
+   "fonetica": "Rof",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MW": {
+   "fonetica": "ema ve doble",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CNT": {
+   "fonetica": "ce ena te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GRB": {
+   "fonetica": "ge erra be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PDR": {
+   "fonetica": "pe de erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVau": {
+   "fonetica": "quinzau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIIau": {
+   "fonetica": "vint-e-dusau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ELISA": {
+   "fonetica": "Elisa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IXau": {
+   "fonetica": "nauau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIVau": {
+   "fonetica": "vint-e-quatau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GNL": {
+   "fonetica": "ge ena ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KUMITE": {
+   "fonetica": "Kumite",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MUP": {
+   "fonetica": "Mup",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FMC": {
+   "fonetica": "efa ema ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TRLRHL": {
+   "fonetica": "te erra ela erra hac ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DGT": {
+   "fonetica": "de ge te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICOM": {
+   "fonetica": "Icom",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AE": {
+   "fonetica": "a e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SNU": {
+   "fonetica": "essa ena u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OAC": {
+   "fonetica": "o a ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LMCE": {
+   "fonetica": "ela ema ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FECIT": {
+   "fonetica": "Fecit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BCN": {
+   "fonetica": "be ce ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IMV": {
+   "fonetica": "i ema ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FJT": {
+   "fonetica": "efa jota te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EPI": {
+   "fonetica": "Epi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIIIau": {
+   "fonetica": "ueitau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "STOP": {
+   "fonetica": "Stop",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AEGM": {
+   "fonetica": "a e ge ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICIO": {
+   "fonetica": "Icio",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVIIau": {
+   "fonetica": "dètz-e-setau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDC": {
+   "fonetica": "ce de ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UPF": {
+   "fonetica": "u pe efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TRLUC": {
+   "fonetica": "te erra ela u ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CATCert": {
+   "fonetica": "Catcert",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RLlt": {
+   "fonetica": "erra ela ela te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RLct": {
+   "fonetica": "erra ela ce te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEEA": {
+   "fonetica": "ce e e a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICANN": {
+   "fonetica": "Icann",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TVE": {
+   "fonetica": "te ve e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDU": {
+   "fonetica": "ce de u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OLP": {
+   "fonetica": "o ela pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RSFS": {
+   "fonetica": "erra essa efa essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CPI": {
+   "fonetica": "ce pe i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AMF": {
+   "fonetica": "a ema efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LRC": {
+   "fonetica": "ela erra ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARCHYTAS": {
+   "fonetica": "Archytas",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ELFOCAT": {
+   "fonetica": "Elfocat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PYMES": {
+   "fonetica": "Pymes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CSIC": {
+   "fonetica": "ce essa i ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SDIS": {
+   "fonetica": "essa de i essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXX": {
+   "fonetica": "ics ics ics",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PAC": {
+   "fonetica": "Pac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VOX": {
+   "fonetica": "Vox",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EPAF": {
+   "fonetica": "Epaf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FFI": {
+   "fonetica": "efa efa i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DHC": {
+   "fonetica": "de hac ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CRC": {
+   "fonetica": "ce erra ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICD": {
+   "fonetica": "i ce de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FNDI": {
+   "fonetica": "efa ena de i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACAP": {
+   "fonetica": "Acap",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UHRTE": {
+   "fonetica": "u hac erra te e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AUGGA": {
+   "fonetica": "Augga",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CTT": {
+   "fonetica": "ce te te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "COELL": {
+   "fonetica": "Coell",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UOC": {
+   "fonetica": "u o ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AMPEs": {
+   "fonetica": "Ampes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VILAMÒS": {
+   "fonetica": "Vilamòs",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TECALP": {
+   "fonetica": "Tecalp",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XIIIau": {
+   "fonetica": "tretzau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICL": {
+   "fonetica": "i ce ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NORAM": {
+   "fonetica": "Noram",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISF": {
+   "fonetica": "i essa efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NH": {
+   "fonetica": "ena hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVIau": {
+   "fonetica": "setzau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OPLO": {
+   "fonetica": "Oplo",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KATA": {
+   "fonetica": "Kata",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXVII": {
+   "fonetica": "trenta sèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EKKE": {
+   "fonetica": "Ekke",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ICV": {
+   "fonetica": "i ce ve",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BELLVER": {
+   "fonetica": "Bellver",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JPG": {
+   "fonetica": "jota pe ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GAD": {
+   "fonetica": "Gad",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FESTIVAL": {
+   "fonetica": "Festival",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DOCG": {
+   "fonetica": "de o ce ge",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TERÇONA": {
+   "fonetica": "Terçona",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "REE": {
+   "fonetica": "erra e e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ZEC": {
+   "fonetica": "Zec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MIJARAN": {
+   "fonetica": "Mijaran",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HM": {
+   "fonetica": "hac ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PMU": {
+   "fonetica": "pe ema u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LUC": {
+   "fonetica": "Luc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AMADOR": {
+   "fonetica": "Amador",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PACO": {
+   "fonetica": "Paco",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RUIZ": {
+   "fonetica": "Ruiz",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CANELA": {
+   "fonetica": "Canela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SIIEA": {
+   "fonetica": "essa i i e a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TolstoiLIBRE": {
+   "fonetica": "Tolstoilibre",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "STS": {
+   "fonetica": "essa te essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENHER": {
+   "fonetica": "Enher",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CNRS": {
+   "fonetica": "ce ena erra essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SIREN": {
+   "fonetica": "Siren",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FICR": {
+   "fonetica": "efa i ce erra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OIM": {
+   "fonetica": "o i ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NSDAP": {
+   "fonetica": "ena essa de a pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SPD": {
+   "fonetica": "essa pe de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UK": {
+   "fonetica": "u ca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CBE": {
+   "fonetica": "ce be e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENIAC": {
+   "fonetica": "Eniac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NGC": {
+   "fonetica": "ena ge ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UAA": {
+   "fonetica": "u a a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RSSA": {
+   "fonetica": "erra essa essa a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LGBT": {
+   "fonetica": "ela ge be te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SD": {
+   "fonetica": "essa de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CELROM": {
+   "fonetica": "Celrom",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EPIS": {
+   "fonetica": "Epis",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EPE": {
+   "fonetica": "e pe e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MANEL": {
+   "fonetica": "Manel",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAT": {
+   "fonetica": "ce a te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXIV": {
+   "fonetica": "trenta quate",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXVI": {
+   "fonetica": "trenta sies",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SALOMON": {
+   "fonetica": "Salomon",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PE": {
+   "fonetica": "pe e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GAL": {
+   "fonetica": "Gal",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GLOBA": {
+   "fonetica": "Globa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EMC": {
+   "fonetica": "e ema ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PK": {
+   "fonetica": "pe ca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LGTB": {
+   "fonetica": "ela ge te be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KB": {
+   "fonetica": "ca be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UTC": {
+   "fonetica": "u te ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DACC": {
+   "fonetica": "Dacc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UIM": {
+   "fonetica": "u i ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "REFU": {
+   "fonetica": "Refu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SIG": {
+   "fonetica": "Sig",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ADIFOLK": {
+   "fonetica": "Adifolk",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ECT": {
+   "fonetica": "e ce te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARQUITECTES": {
+   "fonetica": "Arquitectes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TELEFÓNICA": {
+   "fonetica": "Telefónica",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RLT": {
+   "fonetica": "erra ela te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIGESA": {
+   "fonetica": "Vigesa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HD": {
+   "fonetica": "hac de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PRI": {
+   "fonetica": "Pri",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TRLCSP": {
+   "fonetica": "te erra ela ce essa pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LRBRL": {
+   "fonetica": "ela erra be erra ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BP": {
+   "fonetica": "be pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "USD": {
+   "fonetica": "u essa de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DARPA": {
+   "fonetica": "Darpa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PDF": {
+   "fonetica": "pe de efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LAURENÇ": {
+   "fonetica": "Laurenç",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXVIau": {
+   "fonetica": "vint-e-siesau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ML": {
+   "fonetica": "ema ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CXVIII": {
+   "fonetica": "cent dètz-e-ueit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IAU": {
+   "fonetica": "i a u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXVIau": {
+   "fonetica": "trenta siesau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXVau": {
+   "fonetica": "trenta cincau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXau": {
+   "fonetica": "trentaau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XC": {
+   "fonetica": "ics ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XL": {
+   "fonetica": "ics ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CL": {
+   "fonetica": "ce ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXIX": {
+   "fonetica": "trenta nau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MM": {
+   "fonetica": "ema ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XLVII": {
+   "fonetica": "quaranta sèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LXVII": {
+   "fonetica": "seishanta sèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CDL": {
+   "fonetica": "ce de ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MCD": {
+   "fonetica": "ema ce de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AB": {
+   "fonetica": "Ab",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARN": {
+   "fonetica": "a erra ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BEI": {
+   "fonetica": "Bei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CERCA": {
+   "fonetica": "Cerca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DC": {
+   "fonetica": "de ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EE": {
+   "fonetica": "e e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ETA": {
+   "fonetica": "Eta",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EU": {
+   "fonetica": "e u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NES": {
+   "fonetica": "Nes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OH": {
+   "fonetica": "o hac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIau": {
+   "fonetica": "siesau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UA": {
+   "fonetica": "u a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DE": {
+   "fonetica": "De",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PAU": {
+   "fonetica": "Pau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SA": {
+   "fonetica": "essa a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DETH": {
+   "fonetica": "Deth",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SOC": {
+   "fonetica": "Soc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EN": {
+   "fonetica": "En",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DERA": {
+   "fonetica": "Dera",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ES": {
+   "fonetica": "Es",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ETH": {
+   "fonetica": "Eth",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CATEGORIA": {
+   "fonetica": "Categoria",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ERA": {
+   "fonetica": "Era",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "D'ARAN": {
+   "fonetica": "D'aran",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VIELHA": {
+   "fonetica": "Vielha",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAU": {
+   "fonetica": "essa a u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CoNCA": {
+   "fonetica": "Conca",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SE": {
+   "fonetica": "essa e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PRESENTACION": {
+   "fonetica": "Presentacion",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DES": {
+   "fonetica": "Des",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DESIR": {
+   "fonetica": "Desir",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NON": {
+   "fonetica": "Non",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AC": {
+   "fonetica": "a ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LENGUA": {
+   "fonetica": "Lengua",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TRESAU": {
+   "fonetica": "Tresau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CRAMBA": {
+   "fonetica": "Cramba",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SUBVENCIONS": {
+   "fonetica": "Subvencions",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AN": {
+   "fonetica": "An",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PAGE": {
+   "fonetica": "Page",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OSTAU": {
+   "fonetica": "Ostau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAR": {
+   "fonetica": "Car",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VA": {
+   "fonetica": "ve a",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "VAL": {
+   "fonetica": "Val",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BASES": {
+   "fonetica": "Bases",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ESPECIFIQUES": {
+   "fonetica": "Especifiques",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENTARA": {
+   "fonetica": "Entara",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONCESSION": {
+   "fonetica": "Concession",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AIRAU": {
+   "fonetica": "Airau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENTAR": {
+   "fonetica": "Entar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SENHORA": {
+   "fonetica": "Senhora",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SIA": {
+   "fonetica": "Sia",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CASTÈTH": {
+   "fonetica": "Castèth",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PALAI": {
+   "fonetica": "Palai",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAI": {
+   "fonetica": "Cai",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LES": {
+   "fonetica": "ela e essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PER": {
+   "fonetica": "Per",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DER": {
+   "fonetica": "Der",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GEnerau": {
+   "fonetica": "Generau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "D'AGUESTA": {
+   "fonetica": "D'aguesta",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HILHUQUÈRA": {
+   "fonetica": "Hilhuquèra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ER": {
+   "fonetica": "Er",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NE": {
+   "fonetica": "Ne",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ME": {
+   "fonetica": "Me",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CO": {
+   "fonetica": "Çò",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARC": {
+   "fonetica": "Arc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONSELH": {
+   "fonetica": "Conselh",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OPEN": {
+   "fonetica": "Open",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KARATE": {
+   "fonetica": "Karate",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PRÈMI": {
+   "fonetica": "Prèmi",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAÇA": {
+   "fonetica": "Caça",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "QUATAU": {
+   "fonetica": "Quatau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ET": {
+   "fonetica": "e te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AT": {
+   "fonetica": "a te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DUSAU": {
+   "fonetica": "Dusau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CULTURA": {
+   "fonetica": "Cultura",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BORSA": {
+   "fonetica": "Borsa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "GROP": {
+   "fonetica": "Grop",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PART": {
+   "fonetica": "Part",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ÒBRA": {
+   "fonetica": "Òbra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAP": {
+   "fonetica": "Cap",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UN": {
+   "fonetica": "Un",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACCION": {
+   "fonetica": "Accion",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SAI": {
+   "fonetica": "Sai",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IL": {
+   "fonetica": "i ela",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DAM": {
+   "fonetica": "Dam",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ATH": {
+   "fonetica": "Ath",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SETMANA": {
+   "fonetica": "Setmana",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNION": {
+   "fonetica": "Union",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ÒC": {
+   "fonetica": "Òc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SUR": {
+   "fonetica": "Sur",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENA": {
+   "fonetica": "Ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACIU": {
+   "fonetica": "Aciu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENTÀ": {
+   "fonetica": "Entà",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JUNH": {
+   "fonetica": "Junh",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "REGLAMENT": {
+   "fonetica": "Reglament",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DAR": {
+   "fonetica": "Dar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "REI": {
+   "fonetica": "Rei",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONDE": {
+   "fonetica": "Conde",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DAT": {
+   "fonetica": "Dat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MUSÈU": {
+   "fonetica": "Musèu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HÈSTES": {
+   "fonetica": "Hèstes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HUEC": {
+   "fonetica": "Huec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ÈM": {
+   "fonetica": "Èm",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ENS": {
+   "fonetica": "Ens",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RES": {
+   "fonetica": "erra e essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UNE": {
+   "fonetica": "Une",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SETEME": {
+   "fonetica": "Seteme",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CORSA": {
+   "fonetica": "Corsa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ESPORTIU": {
+   "fonetica": "Esportiu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TOP": {
+   "fonetica": "Top",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "INTERNACIONAU": {
+   "fonetica": "Internacionau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LIURE": {
+   "fonetica": "Liure",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "JUNIOR": {
+   "fonetica": "Junior",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SURF": {
+   "fonetica": "Surf",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BEC": {
+   "fonetica": "Bec",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CAMPIONAT": {
+   "fonetica": "Campionat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OCCITANA": {
+   "fonetica": "Occitana",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DUS": {
+   "fonetica": "Dus",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PIMES": {
+   "fonetica": "Pimes",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "APP": {
+   "fonetica": "App",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NET": {
+   "fonetica": "Net",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HÈT": {
+   "fonetica": "Hèt",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ORARIS": {
+   "fonetica": "Oraris",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TERÇON": {
+   "fonetica": "Terçon",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PARELHA": {
+   "fonetica": "Parelha",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MUNICIPAU": {
+   "fonetica": "Municipau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PEU": {
+   "fonetica": "Peu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONFORMITAT": {
+   "fonetica": "Conformitat",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "LAC": {
+   "fonetica": "Lac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FONCIONAMENT": {
+   "fonetica": "Foncionament",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SERVICI": {
+   "fonetica": "Servici",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PICA": {
+   "fonetica": "Pica",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "D'ESPÒRTS": {
+   "fonetica": "D'espòrts",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "NIVÈU": {
+   "fonetica": "Nivèu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SALA": {
+   "fonetica": "Sala",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PAIR": {
+   "fonetica": "Pair",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PARC": {
+   "fonetica": "Parc",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AD": {
+   "fonetica": "a de",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACABE": {
+   "fonetica": "Acabe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TÍTOL": {
+   "fonetica": "Títol",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MEMÒRIA": {
+   "fonetica": "Memòria",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SCÈNA": {
+   "fonetica": "Scèna",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXIVaua": {
+   "fonetica": "vint-e-quataua",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DI": {
+   "fonetica": "de i",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIF": {
+   "fonetica": "ce i efa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PRUMÈR": {
+   "fonetica": "Prumèr",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RAL": {
+   "fonetica": "Ral",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FORD": {
+   "fonetica": "Ford",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FRAIRE": {
+   "fonetica": "Fraire",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PEFC": {
+   "fonetica": "pe e efa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ESCÒLA": {
+   "fonetica": "Escòla",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "SVB": {
+   "fonetica": "essa ve be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FFME": {
+   "fonetica": "efa efa ema e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DAMB": {
+   "fonetica": "Damb",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "EFM": {
+   "fonetica": "e efa ema",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ODS": {
+   "fonetica": "o de essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "AIAC": {
+   "fonetica": "Aiac",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RLC": {
+   "fonetica": "erra ela ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RNT": {
+   "fonetica": "erra ena te",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONCORS": {
+   "fonetica": "Concors",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TEATRE": {
+   "fonetica": "Teatre",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISBN": {
+   "fonetica": "i essa be ena",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CEAB": {
+   "fonetica": "ce e a be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CRBMC": {
+   "fonetica": "ce erra be ema ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CHU": {
+   "fonetica": "ce hac u",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "UCAM": {
+   "fonetica": "Ucam",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "THE": {
+   "fonetica": "The",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CISA": {
+   "fonetica": "Cisa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IKAR": {
+   "fonetica": "Ikar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IOC": {
+   "fonetica": "i o ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARVA": {
+   "fonetica": "Arva",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "POPULAR": {
+   "fonetica": "Popular",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIUTADANS": {
+   "fonetica": "Ciutadans",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CONTRA": {
+   "fonetica": "Contra",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ISPC": {
+   "fonetica": "i essa pe ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CE": {
+   "fonetica": "ce e",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BS": {
+   "fonetica": "be essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CHEBRO": {
+   "fonetica": "Chebro",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "KOLL": {
+   "fonetica": "Koll",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TES": {
+   "fonetica": "te e essa",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "TU": {
+   "fonetica": "Tu",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BMB": {
+   "fonetica": "be ema be",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "DIBOISH": {
+   "fonetica": "Diboish",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PRO": {
+   "fonetica": "Pro",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CIRIT": {
+   "fonetica": "Cirit",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PERIS": {
+   "fonetica": "Peris",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XVRAC": {
+   "fonetica": "ics ve erra a ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PVP": {
+   "fonetica": "pe ve pe",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FSC": {
+   "fonetica": "efa essa ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ECOLABEL": {
+   "fonetica": "Ecolabel",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ACTIC": {
+   "fonetica": "Actic",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MASCULIN": {
+   "fonetica": "Masculin",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "FESTIVAU": {
+   "fonetica": "Festivau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MAJOR": {
+   "fonetica": "Major",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "HIC": {
+   "fonetica": "hac i ce",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "IFLA": {
+   "fonetica": "Ifla",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "ARE": {
+   "fonetica": "Are",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PERI": {
+   "fonetica": "Peri",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "CESAR": {
+   "fonetica": "Cesar",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MAIR": {
+   "fonetica": "Mair",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "OSTALÈR": {
+   "fonetica": "Ostalèr",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "PÒRTA": {
+   "fonetica": "Pòrta",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "RAS": {
+   "fonetica": "Ras",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "BEN": {
+   "fonetica": "Ben",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXIVau": {
+   "fonetica": "trenta quatau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "XXXIau": {
+   "fonetica": "trenta unau",
+   "revisat": false,
+   "origen": "regla_sigles"
+  },
+  "MMX": {
+   "fonetica": "ema ema ics",
+   "revisat": false,
+   "origen": "regla_sigles"
+  }
+ }
+}

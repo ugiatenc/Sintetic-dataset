@@ -1,28 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Construeix el banc de sorolls ambientals a partir del dataset DEMAND.
-
-DEMAND (Diverse Environments Multichannel Acoustic Noise Database) son gravacions
-reals d'ambients de 5 minuts. Baixem el mirror de HuggingFace en comptes de Zenodo
-perque Zenodo dona timeouts i ~8 KB/s, mentre que el CDN de HF va a ~15 MB/s.
-
-El mirror serveix cada ambient tallat en 75 segments de 4 s a 16 kHz. Aqui els
-tornem a unir en un unic .wav continu per ambient (5 min) i el remostregem a la
-frequencia del pipeline, de manera que despres es puguin agafar retalls aleatoris
-de qualsevol durada sense haver de gestionar fitxers solts.
-
-Nota sobre l'amplada de banda: el mirror es de 16 kHz, aixi que el soroll no te
-contingut per sobre de 8 kHz. Es irrellevant per l'objectiu del projecte perque
-Whisper treballa a 16 kHz i descarta aquesta banda igualment.
-
-Llicencia: DEMAND es CC BY 4.0 (Thiemann, Ito & Vincent, 2013). Cal citar-la si
-es publica el dataset resultant.
-
-Exemple:
-    python3 src/build_noise_bank.py
-    python3 src/build_noise_bank.py --ambients redaccio carrer --overwrite
-"""
+"""Banc de sorolls ambientals a partir de DEMAND."""
 
 import argparse
 import shutil
@@ -33,12 +11,9 @@ import soundfile as sf
 import soxr
 
 REPO_ID = "SPARCO-project/benchmark_DEMAND_noise"
-DEFAULT_OUTPUT_DIR = Path("datasets/audios/entorns/soroll")
+DEFAULT_OUTPUT_DIR = Path("data/comu/entorns/soroll")
 DEFAULT_SAMPLE_RATE = 24000
 
-# Mapeig entre els ambients de DEMAND i els escenaris periodistics que ens
-# interessen. La clau es el nom que faran servir els entorns del pipeline.
-#   split -> subcarpeta del mirror on viu aquell ambient
 AMBIENTS = {
     "redaccio":     {"demand": "OOFFICE",  "split": "scorer_val",
                      "descripcio": "Oficina: teclats, murmuri de fons, aire condicionat"},
@@ -54,7 +29,7 @@ AMBIENTS = {
                      "descripcio": "Estacio de tren: megafonia llunyana, gentada"},
 }
 
-CROSSFADE_MS = 20  # per dissimular el tall entre segments consecutius
+CROSSFADE_MS = 20
 
 
 def descarregar_ambient(nom, spec, cache_dir=None):
@@ -75,12 +50,7 @@ def descarregar_ambient(nom, spec, cache_dir=None):
 
 
 def unir_segments(segments, crossfade_ms=CROSSFADE_MS):
-    """Concatena els segments amb un crossfade curt i retorna (senyal, sample_rate).
-
-    Els segments son trossos consecutius de la mateixa gravacio, pero fem un
-    crossfade igualment perque un tall sec introduiria un clic periodic cada 4 s
-    que el model podria aprendre com a artefacte.
-    """
+    """Concatena els segments amb un crossfade curt i retorna (senyal, sample_rate)."""
     trossos, sr = [], None
     for seg in segments:
         dades, sr_seg = sf.read(seg, dtype="float32", always_2d=False)
@@ -108,6 +78,7 @@ def unir_segments(segments, crossfade_ms=CROSSFADE_MS):
 
 
 def construir(nom, spec, output_dir, sample_rate, overwrite, cache_dir=None):
+    """Construeix una pista de soroll a partir de la seva especificacio."""
     desti = Path(output_dir) / f"{nom}.wav"
     if desti.exists() and not overwrite:
         info = sf.info(desti)
@@ -120,8 +91,6 @@ def construir(nom, spec, output_dir, sample_rate, overwrite, cache_dir=None):
     if sr_origen != sample_rate:
         senyal = soxr.resample(senyal, sr_origen, sample_rate, quality="VHQ")
 
-    # Normalitzem a un pic conegut perque despres el mesclador nomes hagi de
-    # raonar en termes de SNR i no d'on venia el fitxer.
     pic = float(np.abs(senyal).max())
     if pic > 0:
         senyal = senyal / pic * 0.95
@@ -163,6 +132,7 @@ def escriure_atribucio(output_dir, ambients):
 
 
 def main():
+    """Punt d'entrada: arguments de la linia d'ordres i execucio."""
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--ambients", nargs="*", default=list(AMBIENTS),

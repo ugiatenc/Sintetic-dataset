@@ -1,53 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Construeix un banc de llavors de veu (es_ES) per a clonatge zero-shot amb OmniVoice.
-
-Dues fonts, amb rols diferents:
-
-1. **Common Voice** (`fsicoli/common_voice_17_0`, CC0): gravacions netes de
-   navegador/mobil, amb metadades autodeclarades de `gender`, `age` i `accents`.
-   Es filtra estrictament per accent peninsular (el camp `accents` dels .tsv reals
-   sempre comenca per "España: ..." per als locutors d'aqui), i son les veus que
-   despres passen pel simulador acustic sencer.
-2. **VoxPopuli** (`facebook/voxpopuli`, config `es`, CC0): parla real del Parlament
-   Europeu. Porta `speaker_id` i `gender` a les anotacions, pero **no** edat. L'audio
-   ja ve ambientat (sala + soroll de fons), per aixo al notebook aquestes veus es
-   marquen `font_real=True` i salten el simulador.
-
-**Per que `--split dev` per defecte a Common Voice:** `validated.tsv` es la unio de
-train+dev+test (>400k files per `es`), pero l'audio nomes es descarrega en blocs
-(.tar) per split -- train te 9 blocs de diversos GB, mentre que dev cap en un sol
-.tar (~770 MB) amb gent d'una gran varietat d'accents i generes.
-
-**Per que VoxPopuli va en streaming:** els parquet d'`es` pesen ~1 GB per split i
-no calen sencers; es llegeixen fila a fila i s'atura quan ja hi ha prou locutors
-(`--max-files-voxpopuli`).
-
-Pipeline per locutor:
-
-    clips crus -> VAD -> control de qualitat -> retall de silencis
-              -> motor de durada (talla els llargs / empalma els curts)
-              -> resample 24 kHz -> normalitzacio (-23 LUFS o pic -1 dBFS)
-              -> es_ES_<dataset>_<speaker>_<gender>_<age>.wav + manifest JSON
-
-**Integracio amb el pipeline:** `lab/generate_voices_environments.ipynb` (seccio 2)
-encara llegeix les veus netes de `datasets/audios/referencia/locutors.json`, que es el
-format que escrivia la versio anterior d'aquest script. El manifest d'aqui
-(`voice_bank_manifest.json`) porta la mateixa informacio i mes, pero amb un altre nom i
-una altra estructura: per fer-lo servir des del notebook cal adaptar-hi la carrega.
-
-Exemples:
-    # Explorar els valors de accents/gender/age de Common Voice (nomes baixa el .tsv)
-    python3 src/build_voice_bank.py --explore
-
-    # 20 locutors equilibrats 50/50, de les dues fonts
-    python3 src/build_voice_bank.py --n-locutors 20
-
-    # Nomes Common Voice, a la carpeta que llegeix el notebook
-    python3 src/build_voice_bank.py --sources common_voice \
-        --output-dir datasets/audios/referencia
-"""
+"""Banc de veus de referencia (Common Voice, VoxPopuli): VAD, metriques de qualitat, seleccio i normalitzacio."""
 
 import argparse
 import csv
@@ -66,53 +19,45 @@ import numpy as np
 import soundfile as sf
 import soxr
 
-# --- Fonts ---------------------------------------------------------------
 REPO_COMMON_VOICE = "fsicoli/common_voice_17_0"
 REPO_VOXPOPULI = "facebook/voxpopuli"
 
-# Als .tsv reals, els accents peninsulars sempre comencen per "España: ..."
 ACCENT_KEYWORDS_ES_ES = ["espana"]
 
-# --- Sortida -------------------------------------------------------------
 DEFAULT_OUTPUT_DIR = Path("data/voice_seeds")
 MANIFEST_NAME = "voice_bank_manifest.json"
-DEFAULT_SAMPLE_RATE = 24000          # master d'OmniVoice; 16 bits, mono, PCM WAV
-DEFAULT_LUFS = -23.0                 # EBU R128
-DEFAULT_PEAK_DBFS = -1.0             # sostre de pic, tambe en mode LUFS
+DEFAULT_SAMPLE_RATE = 24000
+DEFAULT_LUFS = -23.0
+DEFAULT_PEAK_DBFS = -1.0
 
-# --- Motor de durada -----------------------------------------------------
-DURADA_MIN_S = 8.0
+DURADA_MIN_S = 3.0
 DURADA_MAX_S = 10.0
-SILENCI_CONFORT_S = 0.2              # entre clips empalmats
-SILENCI_VORA_MAX_S = 0.5             # silenci tolerat a l'inici/final
+SILENCI_CONFORT_S = 0.2
+SILENCI_VORA_MAX_S = 0.5
+MARGE_JUNTURA_S = 0.14
 
-# --- Control de qualitat -------------------------------------------------
-FS_ANALISI = 16000                   # el VAD i les metriques treballen aqui
-MIN_RATIO_PARLA = 0.60               # parla / durada total del clip
-MIN_SNR_DB = 18.0                    # nivell de parla vs. terra de soroll
-MIN_SNR_VOXPOPULI_DB = 14.0          # VoxPopuli es sala real, no cabina
-SNR_BO_DB = 35.0                     # a partir d'aqui, la puntuacio d'SNR satura
-SNR_MAX_DB = 60.0                    # sostre: per sobre, la mesura ja no vol dir res
-MAX_RATIO_CLIPPING = 0.001           # fraccio de mostres saturades
+FS_ANALISI = 16000
+MIN_RATIO_PARLA = 0.60
+MIN_SNR_DB = 18.0
+MIN_SNR_VOXPOPULI_DB = 14.0
+SNR_BO_DB = 35.0
+SNR_MAX_DB = 60.0
+MAX_RATIO_CLIPPING = 0.001
 LLINDAR_CLIPPING = 0.98
-MAX_TRANSITORIS_PER_MIN = 6.0        # pics fora de parla (rialles, aplaudiments)
+MAX_TRANSITORIS_PER_MIN = 6.0
 MIN_DURADA_CLIP_S = 1.0
-MIN_PUNTUACIO = 0.5                  # puntuacio de validacio minima per publicar
+MIN_PUNTUACIO = 0.5
 
-GRUPS_EDAT = {  # etiquetes de Common Voice -> grup de mostreig
+GRUPS_EDAT = {
     "teens": "jove", "twenties": "jove",
     "thirties": "adult", "fourties": "adult", "fifties": "adult",
     "sixties": "gran", "seventies": "gran", "eighties": "gran", "nineties": "gran",
 }
-GENERES = {  # etiquetes de les dues fonts -> valor canonic del nom de fitxer
+GENERES = {
     "male_masculine": "male", "female_feminine": "female",
     "male": "male", "female": "female",
 }
 
-
-# =========================================================================
-# Utilitats
-# =========================================================================
 
 def _normalitzar(text):
     """Treu accents/majuscules per comparar paraules clau sense sorpreses."""
@@ -127,19 +72,20 @@ def _sanejar(text, per_defecte="unknown"):
 
 
 def _genere_canonic(valor):
+    """Genere normalitzat."""
     return GENERES.get(_normalitzar(valor).strip(), "unknown")
 
 
 def _grup_edat(valor):
+    """Grup d'edat normalitzat."""
     return GRUPS_EDAT.get(_normalitzar(valor).strip(), "desconegut")
 
 
 def _id_curt(speaker_id):
-    """`client_id` de Common Voice fa 128 hex: massa per a un nom de fitxer.
-    Un prefix del sha1 es estable entre execucions i prou curt per llegir-lo."""
+    """`client_id` de Common Voice fa 128 hex: massa per a un nom de fitxer."""
     net = _sanejar(speaker_id, "")
     if net and len(net) <= 12:
-        return net  # els speaker_id de VoxPopuli ja son curts (p.ex. "96678")
+        return net
     return hashlib.sha1(speaker_id.encode("utf-8")).hexdigest()[:10]
 
 
@@ -154,25 +100,16 @@ def _a_mono_16k(senyal, sr):
 
 
 def _dbfs(x):
+    """calcula el nivell de pic en dBFS (0 dB = 1.0) d'un senyal float32."""
     pic = float(np.abs(x).max()) if x.size else 0.0
     return 20 * np.log10(pic) if pic > 0 else -np.inf
 
 
-# =========================================================================
-# 1. Deteccio d'activitat de veu (VAD)
-# =========================================================================
-
 class DetectorVeu:
-    """Embolcall sobre silero-vad amb caiguda a `librosa.effects.split`.
-
-    Silero es una xarxa entrenada per a veu i distingeix parla de soroll
-    estacionari, musica o aplaudiments; `librosa.effects.split` nomes mira
-    energia, aixi que amb fons sorollos marca com a "parla" qualsevol cosa
-    forta. Per aixo el backend d'energia es un pla B (una instal.lacio sense
-    silero-vad segueix funcionant) i no el cami per defecte.
-    """
+    """Embolcall sobre silero-vad amb caiguda a `librosa.effects.split`."""
 
     def __init__(self, backend="auto"):
+        """Prepara el VAD amb el backend triat (silero o energia)."""
         self.backend = backend
         self._model = None
         self._get_ts = None
@@ -183,7 +120,7 @@ class DetectorVeu:
                 self._model = load_silero_vad()
                 self._get_ts = get_speech_timestamps
                 self.backend = "silero"
-            except Exception as exc:  # sense xarxa, sense torch, sense paquet...
+            except Exception as exc:
                 if backend == "silero":
                     raise
                 print(f"  [avis] silero-vad no disponible ({exc.__class__.__name__}): "
@@ -192,7 +129,7 @@ class DetectorVeu:
         else:
             self.backend = "energia"
 
-    def segments(self, senyal16k):
+    def segments(self, senyal16k, min_silence_ms: int = 200):
         """Retorna [(inici_s, fi_s), ...] dels trams amb parla."""
         if self.backend == "silero":
             import torch
@@ -201,7 +138,7 @@ class DetectorVeu:
                 trams = self._get_ts(
                     torch.from_numpy(senyal16k), self._model,
                     sampling_rate=FS_ANALISI, return_seconds=True,
-                    min_speech_duration_ms=200, min_silence_duration_ms=200,
+                    min_speech_duration_ms=200, min_silence_duration_ms=min_silence_ms,
                     speech_pad_ms=30,
                 )
             return [(float(t["start"]), float(t["end"])) for t in trams]
@@ -215,11 +152,55 @@ class DetectorVeu:
         return [(i / FS_ANALISI, f / FS_ANALISI) for i, f in trams]
 
 
-# =========================================================================
-# 2. Control de qualitat
-# =========================================================================
+class ComparadorLocutors:
+    """Rebutja un locutor candidat si la seva veu s'assembla massa a la d'un ja acceptat (al banc actual o a."""
+
+    def __init__(self, llindar):
+        """Comparador de locutors amb el llindar de similitud."""
+        self.llindar = llindar
+        self.model = None
+        if llindar <= 0:
+            return
+        try:
+            from speechbrain.inference.speaker import EncoderClassifier
+
+            self.model = EncoderClassifier.from_hparams(
+                source="speechbrain/spkrec-ecapa-voxceleb",
+                savedir=str(Path.home() / ".cache" / "speechbrain" / "spkrec-ecapa-voxceleb"),
+                run_opts={"device": "cpu"},
+            )
+        except Exception as exc:
+            print(f"  [avis] speechbrain no disponible ({exc.__class__.__name__}): "
+                  f"sense comprovacio de locutors duplicats", file=sys.stderr)
+            self.llindar = 0
+
+    @property
+    def actiu(self):
+        """Si el model de comparacio esta carregat."""
+        return self.model is not None
+
+    def embedding(self, senyal16k):
+        """Vector unitari (norma 1) que representa la veu del clip -- normalitzat perque comparar-lo amb un altre."""
+        import torch
+
+        with torch.no_grad():
+            vec = self.model.encode_batch(
+                torch.from_numpy(senyal16k).unsqueeze(0)).squeeze().numpy()
+        norma = np.linalg.norm(vec)
+        return vec / norma if norma > 0 else vec
+
+    def mes_semblant(self, embedding, acceptats):
+        """`acceptats`: {fitxer: embedding}."""
+        millor_fitxer, millor_sim = None, 0.0
+        for fitxer, altre in acceptats.items():
+            sim = float(np.dot(embedding, altre))
+            if sim > millor_sim:
+                millor_fitxer, millor_sim = fitxer, sim
+        return millor_fitxer, millor_sim
+
 
 def _mascara_parla(n_mostres, segments):
+    """Mascara booleana de les mostres dins de segments de parla."""
     mascara = np.zeros(n_mostres, dtype=bool)
     for ini, fi in segments:
         mascara[int(ini * FS_ANALISI):int(fi * FS_ANALISI)] = True
@@ -227,18 +208,7 @@ def _mascara_parla(n_mostres, segments):
 
 
 def mesurar_qualitat(senyal16k, segments):
-    """Metriques d'un clip a partir del senyal i dels trams de parla del VAD.
-
-    `snr_db` compara el nivell de la parla amb el terra de soroll, estimat com
-    el percentil 10 de l'energia per finestres de 25 ms. Comparar nomes contra
-    les **pauses** del VAD no serveix aqui: un discurs seguit (el cas normal a
-    VoxPopuli) no en te cap, i donaria SNR infinit encara que la sala fos
-    sorollosa. El percentil, en canvi, cau als buits entre paraules, que
-    existeixen sempre.
-
-    `transitoris_per_min` compta pics d'energia **fora** de la parla, que es on
-    cauen rialles, aplaudiments i cops de micro.
-    """
+    """Metriques d'un clip a partir del senyal i dels trams de parla del VAD."""
     n = senyal16k.size
     durada = n / FS_ANALISI
     if durada < 0.05:
@@ -258,12 +228,10 @@ def mesurar_qualitat(senyal16k, segments):
     if rms_parla <= 0:
         snr = -999.0
     elif terra <= 0:
-        snr = SNR_MAX_DB  # silenci digital: no hi ha res a mesurar
+        snr = SNR_MAX_DB
     else:
         snr = float(np.clip(20 * np.log10(rms_parla / terra), -999.0, SNR_MAX_DB))
 
-    # Un aplaudiment o una rialla sobresurten molt per sobre del fons, pero
-    # queden fora dels trams que el VAD marca com a parla.
     n_transitoris = 0
     if rms_parla > 0 and (~es_parla).any():
         n_transitoris = int((rms[~es_parla] > rms_parla * 10 ** (-9 / 20)).sum())
@@ -280,8 +248,7 @@ def mesurar_qualitat(senyal16k, segments):
 
 
 def puntuar(metriques):
-    """Puntuacio 0..1 per ordenar clips i locutors (no nomes acceptar/rebutjar):
-    amb mes candidats que places, val la pena quedar-se els millors."""
+    """Puntuacio 0..1 per ordenar clips i locutors (no nomes acceptar/rebutjar): amb mes candidats que places."""
     snr = metriques["snr_db"]
     p_snr = np.clip((snr - MIN_SNR_DB) / (SNR_BO_DB - MIN_SNR_DB), 0, 1)
     p_parla = np.clip((metriques["ratio_parla"] - MIN_RATIO_PARLA)
@@ -292,8 +259,7 @@ def puntuar(metriques):
 
 
 def clip_acceptable(metriques, min_snr, min_ratio_parla):
-    """Motiu del descart, o None si passa. Retornar el motiu (i no un bool)
-    permet imprimir per que s'ha quedat sense candidats un locutor."""
+    """Motiu del descart, o None si passa."""
     if metriques["durada_s"] < MIN_DURADA_CLIP_S:
         return "massa curt"
     if metriques["durada_parla_s"] < MIN_DURADA_CLIP_S * 0.5:
@@ -309,26 +275,23 @@ def clip_acceptable(metriques, min_snr, min_ratio_parla):
     return None
 
 
-# =========================================================================
-# 3. Motor de durada: retall, tall de llargs i empalmat de curts
-# =========================================================================
-
-def retallar_silencis(senyal16k, segments, marge_s=SILENCI_VORA_MAX_S):
-    """Elimina el silenci de les vores que passi de `marge_s`, i reajusta els
-    segments a la nova base de temps."""
+def _retallar_vores(senyal16k, segments, marge_ini_s, marge_fi_s):
+    """Com `retallar_silencis`, pero amb un marge diferent a cada costat."""
     if not segments:
         return senyal16k, segments
-    ini = max(0.0, segments[0][0] - marge_s)
-    fi = min(senyal16k.size / FS_ANALISI, segments[-1][1] + marge_s)
+    ini = max(0.0, segments[0][0] - marge_ini_s)
+    fi = min(senyal16k.size / FS_ANALISI, segments[-1][1] + marge_fi_s)
     tall = senyal16k[int(ini * FS_ANALISI):int(fi * FS_ANALISI)]
     return tall, [(s - ini, e - ini) for s, e in segments]
 
 
+def retallar_silencis(senyal16k, segments, marge_s=SILENCI_VORA_MAX_S):
+    """Elimina el silenci de les vores que passi de `marge_s`, i reajusta els segments a la nova base de temps."""
+    return _retallar_vores(senyal16k, segments, marge_s, marge_s)
+
+
 def _extreure(senyal16k, segments, ini_s, fi_s, coixi_s=0.1, dur_max=None):
-    """Retalla [ini_s, fi_s] (amb un coixi als extrems) i hi reajusta els
-    segments de parla i les metriques. `dur_max` limita el resultat **coixi
-    inclos**: sense aixo, una finestra de 10.0 s en sortia de 10.2 i el motor de
-    durada la rebutjava per passar-se del maxim que ell mateix havia demanat."""
+    """Retalla [ini_s, fi_s] (amb un coixi als extrems) i hi reajusta els segments de parla i les metriques."""
     durada = senyal16k.size / FS_ANALISI
     ini = max(0.0, ini_s - coixi_s)
     fi = min(durada, fi_s + coixi_s)
@@ -341,9 +304,7 @@ def _extreure(senyal16k, segments, ini_s, fi_s, coixi_s=0.1, dur_max=None):
 
 
 def _tall_per_energia(senyal16k, ini_s, dur_max, marge_s=0.6):
-    """Punt de tall quan no hi ha cap pausa on tallar: el minim d'energia dins
-    dels ultims `marge_s` de la finestra, per caure en una respiracio i no
-    enmig d'una vocal."""
+    """Punt de tall quan no hi ha cap pausa on tallar."""
     durada = senyal16k.size / FS_ANALISI
     fi_teoric = min(durada, ini_s + dur_max)
     a = int(max(ini_s, fi_teoric - marge_s) * FS_ANALISI)
@@ -358,11 +319,7 @@ def _tall_per_energia(senyal16k, ini_s, dur_max, marge_s=0.6):
 
 
 def millor_finestra(senyal16k, segments, dur_min, dur_max):
-    """En un clip mes llarg que `dur_max`, tria el millor tram que encaixi entre
-    `dur_min` i `dur_max` **tallant per pauses**, mai a mitja paraula.
-
-    Es proven totes les finestres [segment i .. segment j] i es queda la de mes
-    puntuacio; a igualtat, la mes llarga (mes context per al clonador)."""
+    """En un clip mes llarg que `dur_max`."""
     millor = None
     for i in range(len(segments)):
         for j in range(i, len(segments)):
@@ -370,7 +327,7 @@ def millor_finestra(senyal16k, segments, dur_min, dur_max):
             if durada < dur_min:
                 continue
             if durada > dur_max:
-                break  # allargant j nomes creix: no cal seguir
+                break
             tros, segs, met = _extreure(senyal16k, segments, segments[i][0],
                                         segments[j][1], dur_max=dur_max)
             clau = (puntuar(met), durada)
@@ -380,77 +337,61 @@ def millor_finestra(senyal16k, segments, dur_min, dur_max):
         _, tros, segs, met = millor
         return tros, segs, met
 
-    # Pla B: cap parella de pauses encaixa a la finestra. Passa sempre que el
-    # VAD marca un discurs seguit com un unic tram de mes de `dur_max` (tipic de
-    # VoxPopuli), i abans aixo descartava el locutor sencer. Es talla dins del
-    # tram mes llarg, pel punt de menys energia.
     ini = max(segments, key=lambda t: t[1] - t[0])[0]
-    fi = _tall_per_energia(senyal16k, ini, dur_max - 0.2)  # 0.2 = coixi dels dos extrems
+    fi = _tall_per_energia(senyal16k, ini, dur_max - 0.2)
     if fi - ini < dur_min:
         return None
     return _extreure(senyal16k, segments, ini, fi, dur_max=dur_max)
 
 
-def muntar_clip(candidats, dur_min, dur_max, silenci_s=SILENCI_CONFORT_S):
-    """Construeix un clip de `dur_min`..`dur_max` s a partir dels clips validats
-    d'un locutor (ja ordenats de millor a pitjor).
-
-    - Un sol clip que ja hi encaixi: es fa servir tal qual.
-    - Clips curts: s'empalmen amb un silenci de confort de 0.2 s entre frases.
-      No hi va cap crossfade: son frases diferents, i encavalcar-les crearia una
-      transicio que no existeix en cap gravacio real.
-    - Menys de `dur_min` s de parla valida acumulada: el locutor es descarta.
-    """
-    for senyal, segments, met in candidats:  # cas ideal: un clip ja bo
+def muntar_clip(candidats, dur_min, dur_max, silenci_s=SILENCI_CONFORT_S,
+               marge_juntura_s=MARGE_JUNTURA_S):
+    """Construeix un clip de `dur_min`..`dur_max` s a partir dels clips validats d'un locutor (ja ordenats de."""
+    for senyal, segments, met, text in candidats:
         if dur_min <= met["durada_s"] <= dur_max:
-            return senyal, [met]
+            return senyal, [met], [text]
 
-    silenci = np.zeros(int(FS_ANALISI * silenci_s), dtype=np.float32)
-    trossos, usats, total = [], [], 0.0
-    for senyal, segments, met in candidats:
+    peces, usats, textos_usats, total = [], [], [], 0.0
+    for senyal, segments, met, text in candidats:
         if total >= dur_min:
             break
-        restant = dur_max - total - (silenci_s if trossos else 0.0)
+        restant = dur_max - total - (silenci_s if peces else 0.0)
         if restant <= 0:
             break
         if met["durada_s"] > restant:
-            # Nomes serveix un tros: es talla per la pausa mes propera per sota
-            # de `restant`, per no partir cap paraula.
             fins = max((e for _, e in segments if e <= restant), default=0.0)
             if fins < MIN_DURADA_CLIP_S:
-                # Cap pausa prou aviat (tipic d'una frase seguida de Common
-                # Voice): es talla pel punt de menys energia. Descartar el tros
-                # sencer, com es feia abans, deixava fora locutors que nomes
-                # necessitaven un parell de segons per arribar al minim.
                 fins = _tall_per_energia(senyal, 0.0, restant)
             if fins < MIN_DURADA_CLIP_S:
                 continue
             senyal = senyal[:int(min(fins + 0.1, restant) * FS_ANALISI)]
+            segments = [(a, min(b, fins)) for a, b in segments if a < fins]
             met = dict(met, durada_s=round(senyal.size / FS_ANALISI, 3), retallat=True)
-        if trossos:
-            trossos.append(silenci)
-            total += silenci_s
-        trossos.append(senyal)
-        total += senyal.size / FS_ANALISI
+        peces.append([senyal, segments])
+        total += senyal.size / FS_ANALISI + (silenci_s if len(peces) > 1 else 0.0)
         usats.append(met)
+        textos_usats.append(text)
 
     if total < dur_min:
-        return None, usats
-    return np.concatenate(trossos), usats
+        return None, usats, textos_usats
 
+    darrer = len(peces) - 1
+    for k, (senyal, segments) in enumerate(peces):
+        marge_ini = SILENCI_VORA_MAX_S if k == 0 else marge_juntura_s
+        marge_fi = SILENCI_VORA_MAX_S if k == darrer else marge_juntura_s
+        peces[k] = list(_retallar_vores(senyal, segments, marge_ini, marge_fi))
 
-# =========================================================================
-# 4. Normalitzacio i escriptura
-# =========================================================================
+    silenci = np.zeros(int(FS_ANALISI * silenci_s), dtype=np.float32)
+    trossos = []
+    for k, (senyal, _segments) in enumerate(peces):
+        if k > 0:
+            trossos.append(silenci)
+        trossos.append(senyal)
+    return np.concatenate(trossos), usats, textos_usats
+
 
 def normalitzar(senyal, sr, mode, lufs_objectiu, pic_objectiu_db):
-    """-23 LUFS (EBU R128) o pic a -1 dBFS. En mode LUFS el pic tambe es limita:
-    una frase molt dinamica pot demanar un guany que saturi el WAV de 16 bits.
-
-    `mode` es el que s'ha demanat; `info["mode"]` es el que s'ha pogut aplicar
-    (un clip de menys de 0.5 s no te mesura de sonoritat valida, i sense
-    pyloudnorm instal.lat nomes queda la normalitzacio de pic).
-    """
+    """-23 LUFS (EBU R128) o pic a -1 dBFS."""
     info = {"mode": mode}
     if mode == "lufs":
         try:
@@ -459,7 +400,6 @@ def normalitzar(senyal, sr, mode, lufs_objectiu, pic_objectiu_db):
             print("  [avis] pyloudnorm no instal.lat: normalitzacio de pic",
                   file=sys.stderr)
             pyln = None
-        # El bloc del mesurador es de 400 ms: per sota no hi ha mesura valida.
         if pyln is None or senyal.size < int(0.5 * sr):
             info["mode"] = "peak"
         else:
@@ -489,9 +429,6 @@ def escriure_wav(ruta, senyal16k, sample_rate, mode, lufs, pic_db):
     """Resample al sample rate de sortida i escriu PCM 16 bits mono."""
     senyal = senyal16k
     if sample_rate != FS_ANALISI:
-        # VoxPopuli ja ve a 16 kHz i Common Voice a 32/48: pujar a 24 kHz no
-        # afegeix informacio, pero deixa tot el banc amb el mateix format
-        # (el clonador rebutja barrejar sample rates).
         senyal = soxr.resample(senyal16k, FS_ANALISI, sample_rate, quality="VHQ")
     senyal, info = normalitzar(senyal, sample_rate, mode, lufs, pic_db)
     sf.write(ruta, senyal, sample_rate, subtype="PCM_16")
@@ -499,11 +436,8 @@ def escriure_wav(ruta, senyal16k, sample_rate, mode, lufs, pic_db):
     return info
 
 
-# =========================================================================
-# 5. Font: Common Voice
-# =========================================================================
-
 def _cv_descarregar_tsv(idioma, split, token, cache_dir):
+    """Baixa un tsv de Common Voice."""
     from huggingface_hub import hf_hub_download
 
     return Path(hf_hub_download(
@@ -513,8 +447,7 @@ def _cv_descarregar_tsv(idioma, split, token, cache_dir):
 
 
 def _cv_descarregar_shards(idioma, split, token, cache_dir):
-    """Descarrega els .tar d'audio d'un split i retorna {nom_shard: tarfile} i
-    l'index {path_del_tsv: nom_shard}."""
+    """Descarrega els .tar d'audio d'un split i retorna {nom_shard: tarfile} i l'index {path_del_tsv."""
     from huggingface_hub import HfApi, hf_hub_download
 
     api = HfApi(token=token)
@@ -534,19 +467,16 @@ def _cv_descarregar_shards(idioma, split, token, cache_dir):
         print(f"  [ok] {nom_repo}")
         tars[Path(nom_repo).stem] = tarfile.open(ruta)
 
-    # Amb mes d'un .tar cal saber a quin viu cada fitxer. getnames() nomes
-    # llegeix capceleres, aixi que es rapid encara que el .tar pesi GB.
     index = {}
     for nom_shard, tar in tars.items():
         for membre in tar.getnames():
-            if "/" in membre:  # ignora l'entrada de directori arrel
+            if "/" in membre:
                 index[membre.split("/", 1)[1]] = nom_shard
     return tars, index
 
 
 def _cv_files(tsv_path):
-    """Files del .tsv amb pandas si hi es (lectura per trossos, el validated.tsv
-    fa 140 MB), i amb csv com a pla B."""
+    """Files del .tsv amb pandas si hi es (lectura per trossos, el validated.tsv fa 140 MB)."""
     columnes = ["client_id", "path", "sentence", "gender", "age", "accents"]
     try:
         import pandas as pd
@@ -559,11 +489,10 @@ def _cv_files(tsv_path):
     except ImportError:
         with open(tsv_path, encoding="utf-8") as f:
             yield from csv.DictReader(f, delimiter="\t")
-
+DetectorVeu 
 
 def explorar(idioma, split, token, cache_dir):
-    """Distribucio de `accents`/`gender`/`age` de tot el split (nomes el .tsv),
-    per triar les paraules clau del filtre sense endevinar-les."""
+    """Distribucio de `accents`/`gender`/`age` de tot el split (nomes el .tsv)."""
     tsv_path = _cv_descarregar_tsv(idioma, split, token, cache_dir)
     accents, generes, edats, total = Counter(), Counter(), Counter(), 0
     for fila in _cv_files(tsv_path):
@@ -581,9 +510,8 @@ def explorar(idioma, split, token, cache_dir):
 
 
 def perfilar_common_voice(idioma, split, token, cache_dir, accent_keywords,
-                          clips_per_locutor, max_locutors):
-    """Fase barata: nomes el .tsv. Retorna {speaker_id: perfil} amb les files
-    de cada locutor, sense tocar ni un byte d'audio."""
+                          clips_per_locutor, max_locutors, exclou=frozenset()):
+    """Fase barata: nomes el .tsv."""
     tsv_path = _cv_descarregar_tsv(idioma, split, token, cache_dir)
     keywords = [_normalitzar(k) for k in accent_keywords]
 
@@ -593,6 +521,8 @@ def perfilar_common_voice(idioma, split, token, cache_dir, accent_keywords,
         if not accent or not any(k in accent for k in keywords):
             continue
         cid = fila["client_id"]
+        if cid in exclou:
+            continue
         if cid not in perfils:
             if len(perfils) >= max_locutors:
                 continue
@@ -617,18 +547,8 @@ def carregar_audio_cv(fila, tars, index):
     return _a_mono_16k(senyal, sr)
 
 
-# =========================================================================
-# 6. Font: VoxPopuli
-# =========================================================================
-
 def _audio_de_fila(fila):
-    """Mono 16 kHz d'una fila de `datasets`, sigui quina sigui la versio.
-
-    La columna `audio` ha canviat de forma entre versions: fins a `datasets` 4
-    arribava com a dict amb `array`/`sampling_rate`, i a partir de la 5 com a
-    `AudioDecoder` de torchcodec. Amb `decode=False` tornen els bytes crus, que
-    es la forma que no depen de cap d'aquests dos camins.
-    """
+    """Mono 16 kHz d'una fila de `datasets`, sigui quina sigui la versio."""
     audio = fila["audio"]
     if isinstance(audio, dict):
         if audio.get("array") is not None:
@@ -641,28 +561,44 @@ def _audio_de_fila(fila):
             senyal, sr = sf.read(audio["path"], dtype="float32")
             return _a_mono_16k(senyal, sr)
         return None
-    mostres = audio.get_all_samples()  # torchcodec (datasets >= 5)
+    mostres = audio.get_all_samples()
     return _a_mono_16k(mostres.data.numpy().T.squeeze(), int(mostres.sample_rate))
 
 
-def perfilar_voxpopuli(idioma, split, token, cache_dir, clips_per_locutor,
-                       max_locutors, max_files):
-    """Passada en streaming: agrupa els clips per `speaker_id` i s'atura quan ja
-    hi ha prou locutors amb prou segons acumulats.
+def _vp_fitxers_parquet(idioma, split, token, cache_dir):
+    """Nomes els parquet del split demanat (com `_cv_descarregar_shards` amb els .tar de Common Voice)."""
+    from huggingface_hub import HfApi, hf_hub_download
 
-    VoxPopuli no publica edat, aixi que `age` queda "unknown" i el balanceig per
-    grups d'edat nomes actua sobre Common Voice.
-    """
+    api = HfApi(token=token)
+    patro = f"{idioma}/{split}-"
+    noms = sorted(s.rfilename for s in api.dataset_info(REPO_VOXPOPULI).siblings
+                 if s.rfilename.startswith(patro) and s.rfilename.endswith(".parquet"))
+    if not noms:
+        raise RuntimeError(f"Cap parquet trobat a {patro}* -- split incorrecte?")
+    if len(noms) > 1:
+        print(f"  ATENCIO: '{split}' te {len(noms)} parquet (descarrega de diversos GB).")
+    rutes = []
+    for nom in noms:
+        ruta = hf_hub_download(REPO_VOXPOPULI, nom, repo_type="dataset",
+                               token=token, cache_dir=cache_dir)
+        print(f"  [ok] {nom}")
+        rutes.append(ruta)
+    return rutes
+
+
+def perfilar_voxpopuli(idioma, split, token, cache_dir, clips_per_locutor,
+                       max_locutors, max_files, exclou=frozenset()):
+    """Agrupa els clips per `speaker_id` i s'atura quan ja hi ha prou locutors amb prou segons acumulats."""
     from datasets import load_dataset
 
-    ds = load_dataset(REPO_VOXPOPULI, idioma, split=split, streaming=True,
-                      token=token, cache_dir=cache_dir)
+    fitxers = _vp_fitxers_parquet(idioma, split, token, cache_dir)
+    ds = load_dataset("parquet", data_files=fitxers, split="train")
     try:
         from datasets import Audio
 
         ds = ds.cast_column("audio", Audio(decode=False))
     except Exception:
-        pass  # `_audio_de_fila` tambe sap llegir la columna descodificada
+        pass
 
     perfils, llegides = {}, 0
     for fila in ds:
@@ -670,7 +606,7 @@ def perfilar_voxpopuli(idioma, split, token, cache_dir, clips_per_locutor,
         if llegides > max_files:
             break
         sid = str(fila.get("speaker_id") or "").strip()
-        if not sid or sid.lower() == "none":
+        if not sid or sid.lower() == "none" or sid in exclou:
             continue
         if sid not in perfils:
             if len(perfils) >= max_locutors:
@@ -692,7 +628,8 @@ def perfilar_voxpopuli(idioma, split, token, cache_dir, clips_per_locutor,
             continue
         if senyal is None:
             continue
-        perfil["clips"].append(senyal)
+        text = fila.get("raw_text") or fila.get("normalized_text") or ""
+        perfil["clips"].append((senyal, text))
         perfil["segons_crus"] += senyal.size / FS_ANALISI
 
         llestos = sum(1 for p in perfils.values() if p["segons_crus"] >= DURADA_MIN_S * 1.5)
@@ -700,17 +637,12 @@ def perfilar_voxpopuli(idioma, split, token, cache_dir, clips_per_locutor,
             break
 
     if llegides:
-        print(f"  {llegides} files llegides en streaming, {len(perfils)} locutors")
+        print(f"  {llegides} files llegides, {len(perfils)} locutors")
     return perfils
 
 
-# =========================================================================
-# 7. Seleccio equilibrada
-# =========================================================================
-
 def _round_robin(grups):
-    """Intercala diverses llistes: [[a1,a2],[b1]] -> [a1,b1,a2]. Serveix per
-    repartir els grups d'edat dins d'un mateix genere."""
+    """Intercala diverses llistes: [[a1,a2],[b1]] -> [a1,b1,a2]."""
     barrejat, grups = [], [list(g) for g in grups]
     while any(grups):
         for grup in grups:
@@ -720,20 +652,10 @@ def _round_robin(grups):
 
 
 class SelectorEquilibrat:
-    """Decideix quin locutor es prova a continuacio: ~50% de veus masculines i
-    ~50% de femenines, i dins de cada genere repartides entre grups d'edat.
-
-    La decisio es pren sobre la marxa, i no d'entrada, perque el control de
-    qualitat descarta locutors: amb un ordre fix, tres descarts seguits de veus
-    femenines s'acabaven cobrint amb masculines i el banc quedava esbiaixat.
-    Aqui un descart no compta, aixi que el genere que en te menys torna a tenir
-    la preferencia fins que s'acaben els candidats.
-
-    Els locutors sense genere declarat nomes entren quan ja no en queda cap
-    d'etiquetat: no es pot equilibrar el que no se sap.
-    """
+    """Decideix quin locutor es prova a continuacio: ~50% de veus masculines i ~50% de femenines."""
 
     def __init__(self, perfils, llavor):
+        """Selector equilibrat: cues per quota, barrejades amb la llavor."""
         rng = np.random.default_rng(llavor)
         per_quota = defaultdict(list)
         for clau, perfil in perfils.items():
@@ -748,6 +670,7 @@ class SelectorEquilibrat:
         self.emesos = Counter()
 
     def __len__(self):
+        """Perfils que queden a les cues."""
         return sum(len(cua) for cua in self.cues.values())
 
     def seguent(self):
@@ -765,15 +688,11 @@ class SelectorEquilibrat:
         self.emesos[genere] += 1
 
 
-# =========================================================================
-# 8. Processament d'un locutor
-# =========================================================================
-
 def processar_locutor(perfil, clips_crus, vad, args, min_snr=None):
-    """Clips crus d'un locutor -> senyal final a 16 kHz + metadades, o (None, motiu)."""
+    """Clips crus -- parelles `(senyal."""
     min_snr = args.min_snr if min_snr is None else min_snr
     candidats = []
-    for senyal in clips_crus:
+    for senyal, text in clips_crus:
         if senyal is None or senyal.size < int(MIN_DURADA_CLIP_S * FS_ANALISI):
             continue
         segments = vad.segments(senyal)
@@ -781,60 +700,84 @@ def processar_locutor(perfil, clips_crus, vad, args, min_snr=None):
             continue
         senyal, segments = retallar_silencis(senyal, segments)
         if senyal.size / FS_ANALISI > args.durada_max:
-            # Primer es talla i despres es jutja: un clip llarg amb pauses
-            # llargues suspendria el `ratio_parla` per uns silencis que el tall
-            # li treu igualment.
             millor = millor_finestra(senyal, segments, args.durada_min, args.durada_max)
             if millor is None:
                 continue
             senyal, segments, met = millor
+            met["text_exacte"] = False
         else:
             met = mesurar_qualitat(senyal, segments)
+            met["text_exacte"] = True
 
         motiu = clip_acceptable(met, min_snr, args.min_ratio_parla)
         if motiu:
             continue
         met["puntuacio"] = puntuar(met)
-        candidats.append((senyal, segments, met))
+        candidats.append((senyal, segments, met, text))
 
     if not candidats:
         return None, "cap clip supera el control de qualitat"
 
     candidats.sort(key=lambda c: c[2]["puntuacio"], reverse=True)
-    senyal, usats = muntar_clip(candidats, args.durada_min, args.durada_max)
+    senyal, usats, textos_usats = muntar_clip(candidats, args.durada_min, args.durada_max)
     if senyal is None:
         acumulat = sum(m["durada_s"] for m in usats)
         return None, f"nomes {acumulat:.1f}s de parla valida (calen {args.durada_min:.0f}s)"
 
-    # Durada i ratio de parla es mesuren sobre el clip muntat (els silencis de
-    # confort hi compten). SNR i transitoris, en canvi, es prenen del pitjor
-    # tros d'origen: el silenci de confort es digital, potencia zero, i mesurat
-    # sobre el clip muntat dispararia l'SNR a l'infinit encara que els trossos
-    # vinguessin d'una gravacio sorollosa.
     met_final = mesurar_qualitat(senyal, vad.segments(senyal))
     met_final["snr_db"] = min(m["snr_db"] for m in usats)
     met_final["transitoris_per_min"] = max(m["transitoris_per_min"] for m in usats)
     met_final["puntuacio_validacio"] = puntuar(met_final)
     met_final["n_clips_font"] = len(usats)
+    met_final["text"] = " / ".join(t.strip() for t in textos_usats if t and t.strip())
+    met_final["text_exacte"] = all(
+        m.get("text_exacte", True) and not m.get("retallat") for m in usats)
     if met_final["puntuacio_validacio"] < args.min_puntuacio:
         return None, f"puntuacio {met_final['puntuacio_validacio']:.2f} < {args.min_puntuacio}"
     return (senyal, met_final), None
 
 
 def nom_fitxer(perfil):
-    """es_ES_<dataset>_<speaker>_<gender>_<age>.wav"""
+    """es_ES_<dataset>_<speaker>_<gender>_<age>.wav."""
     return (f"es_ES_{perfil['dataset']}_{_id_curt(perfil['speaker_id'])}"
             f"_{perfil['gender']}_{_sanejar(perfil['age'])}.wav")
 
 
-# =========================================================================
-# 9. Manifest
-# =========================================================================
+def _locutors_existents(output_dir):
+    """`speaker_id` ja presents al manifest, agrupats per `dataset`."""
+    ruta = Path(output_dir) / MANIFEST_NAME
+    if not ruta.exists():
+        return defaultdict(set)
+    try:
+        manifest = json.loads(ruta.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return defaultdict(set)
+
+    existents = defaultdict(set)
+    for entrada in manifest.get("clips", {}).values():
+        existents[entrada["dataset"]].add(entrada["speaker_id"])
+    return existents
+
+
+def _embeddings_existents(output_dir):
+    """Embeddings de veu ja guardats al manifest (camp `embedding`), com a {fitxer: np.array}."""
+    ruta = Path(output_dir) / MANIFEST_NAME
+    if not ruta.exists():
+        return {}
+    try:
+        manifest = json.loads(ruta.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+
+    return {
+        fitxer: np.array(entrada["embedding"], dtype=np.float32)
+        for fitxer, entrada in manifest.get("clips", {}).items()
+        if "embedding" in entrada
+    }
+
 
 def escriure_manifest(output_dir, entrades, args):
-    """Fusiona amb el manifest d'execucions anteriors (si n'hi ha): el banc es
-    va ampliant amb crides successives (una per font, per genere...) i cada
-    crida nomes coneix els seus locutors."""
+    """Fusiona amb el manifest d'execucions anteriors (si n'hi ha)."""
     ruta = Path(output_dir) / MANIFEST_NAME
     manifest = {"generat": None, "parametres": {}, "clips": {}}
     if ruta.exists():
@@ -852,6 +795,7 @@ def escriure_manifest(output_dir, entrades, args):
         "min_snr_db": args.min_snr, "min_snr_voxpopuli_db": args.min_snr_voxpopuli,
         "min_ratio_parla": args.min_ratio_parla,
         "min_puntuacio": args.min_puntuacio,
+        "llindar_duplicat": args.llindar_duplicat,
         "fonts": {
             "common_voice": {"repo": REPO_COMMON_VOICE, "llicencia": "CC0-1.0",
                              "origen": "https://commonvoice.mozilla.org"},
@@ -870,10 +814,6 @@ def escriure_manifest(output_dir, entrades, args):
     return ruta, manifest
 
 
-# =========================================================================
-# 10. Orquestracio
-# =========================================================================
-
 def _mostrar_seleccio(selector, perfils, quota, camp_clips):
     """Que sortiria si tots els locutors passessin el control de qualitat."""
     for _ in range(quota):
@@ -885,13 +825,16 @@ def _mostrar_seleccio(selector, perfils, quota, camp_clips):
         print(f"  [dry-run] {nom_fitxer(perfil):58s} clips={len(perfil[camp_clips])}")
 
 
-def _construir_cv(args, vad, quota):
+def _construir_cv(args, vad, quota, exclou=frozenset(), comparador=None, acceptats=None):
+    """Construeix el banc a partir de Common Voice fins a la quota."""
     if quota <= 0:
         return []
     print(f"\n== Common Voice ({args.idioma}/{args.split}) ==")
+    if exclou:
+        print(f"  {len(exclou)} locutors ja al manifest -- es descarten com a candidats")
     perfils = perfilar_common_voice(
         args.idioma, args.split, args.token, args.cache_dir, args.accent_contains,
-        args.clips_per_locutor, max_locutors=quota * args.factor_candidats,
+        args.clips_per_locutor, max_locutors=quota * args.factor_candidats, exclou=exclou,
     )
     print(f"  {len(perfils)} locutors amb accent {args.accent_contains}")
     if not perfils:
@@ -912,8 +855,9 @@ def _construir_cv(args, vad, quota):
             print(f"  [avis] candidats exhaurits amb {len(resultats)}/{quota} locutors")
             break
         perfil = perfils[clau]
-        crus = [carregar_audio_cv(f, tars, index) for f in perfil["files"]]
-        nous = _emetre(perfil, crus, vad, args)
+        crus = [(carregar_audio_cv(f, tars, index), f.get("sentence", ""))
+                for f in perfil["files"]]
+        nous = _emetre(perfil, crus, vad, args, comparador=comparador, acceptats=acceptats)
         if nous:
             selector.registrar(perfil["gender"])
         resultats += nous
@@ -922,14 +866,17 @@ def _construir_cv(args, vad, quota):
     return resultats
 
 
-def _construir_voxpopuli(args, vad, quota):
+def _construir_voxpopuli(args, vad, quota, exclou=frozenset(), comparador=None, acceptats=None):
+    """Construeix el banc a partir de VoxPopuli fins a la quota."""
     if quota <= 0:
         return []
     print(f"\n== VoxPopuli ({args.idioma}/{args.split_voxpopuli}) ==")
+    if exclou:
+        print(f"  {len(exclou)} locutors ja al manifest -- es descarten com a candidats")
     perfils = perfilar_voxpopuli(
         args.idioma, args.split_voxpopuli, args.token, args.cache_dir,
         args.clips_per_locutor, max_locutors=quota * args.factor_candidats,
-        max_files=args.max_files_voxpopuli,
+        max_files=args.max_files_voxpopuli, exclou=exclou,
     )
     if not perfils:
         print("  Cap locutor trobat.")
@@ -947,15 +894,16 @@ def _construir_voxpopuli(args, vad, quota):
             print(f"  [avis] candidats exhaurits amb {len(resultats)}/{quota} locutors")
             break
         perfil = perfils[clau]
-        nous = _emetre(perfil, perfil["clips"], vad, args, min_snr=args.min_snr_voxpopuli)
+        nous = _emetre(perfil, perfil["clips"], vad, args, min_snr=args.min_snr_voxpopuli,
+                      comparador=comparador, acceptats=acceptats)
         if nous:
             selector.registrar(perfil["gender"])
         resultats += nous
     return resultats
 
 
-def _emetre(perfil, clips_crus, vad, args, min_snr=None):
-    """Processa un locutor i, si passa, escriu el .wav. Llista buida si es descarta."""
+def _emetre(perfil, clips_crus, vad, args, min_snr=None, comparador=None, acceptats=None):
+    """Processa un locutor i, si passa, escriu el .wav."""
     resultat, motiu = processar_locutor(perfil, clips_crus, vad, args, min_snr=min_snr)
     nom = nom_fitxer(perfil)
     if resultat is None:
@@ -963,6 +911,16 @@ def _emetre(perfil, clips_crus, vad, args, min_snr=None):
         return []
 
     senyal, met = resultat
+
+    embedding = None
+    if comparador is not None and comparador.actiu:
+        embedding = comparador.embedding(senyal)
+        fitxer_semblant, sim = comparador.mes_semblant(embedding, acceptats or {})
+        if sim > comparador.llindar:
+            print(f"  [--] {nom:60s} descartat: possible duplicat de "
+                  f"{fitxer_semblant} (sim={sim:.2f})")
+            return []
+
     info = escriure_wav(args.output_dir / nom, senyal, args.sample_rate,
                         args.normalitzacio, args.lufs, args.pic_dbfs)
     entrada = {
@@ -973,17 +931,22 @@ def _emetre(perfil, clips_crus, vad, args, min_snr=None):
         "idioma": "es_ES", "sample_rate": args.sample_rate,
         "durada_s": info["durada_s"], "n_clips_font": met["n_clips_font"],
         "puntuacio_validacio": met["puntuacio_validacio"],
+        "text": met["text"], "text_exacte": met["text_exacte"],
         "qualitat": {k: met[k] for k in ("snr_db", "ratio_parla", "durada_parla_s",
                                          "ratio_clipping", "transitoris_per_min")},
         "normalitzacio": info,
         "font_real": perfil["dataset"] == "voxpopuli",
     }
+    if embedding is not None:
+        entrada["embedding"] = [round(float(x), 4) for x in embedding]
+        acceptats[nom] = embedding
     print(f"  [ok] {nom:60s} {info['durada_s']:5.1f}s  snr={met['snr_db']:5.1f}dB  "
           f"punt={met['puntuacio_validacio']:.2f}  clips={met['n_clips_font']}")
     return [(nom, entrada)]
 
 
 def main():
+    """Punt d'entrada: arguments de la linia d'ordres i execucio."""
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--sources", nargs="+", default=["common_voice", "voxpopuli"],
@@ -1015,11 +978,14 @@ def main():
                         help="Candidats a perfilar per cada placa (el control de "
                              "qualitat en descarta una part)")
     parser.add_argument("--max-files-voxpopuli", type=int, default=1500,
-                        help="Files maximes a llegir en streaming de VoxPopuli. El "
-                             "streaming baixa el parquet de manera seqüencial, aixi "
-                             "que aquest numero es, sobretot, un limit de temps de "
-                             "descarrega (molt notable sense --token)")
-    parser.add_argument("--durada-min", type=float, default=DURADA_MIN_S)
+                        help="Files maximes a llegir/decodificar del parquet de "
+                             "VoxPopuli durant el perfilat, abans de rendir-se si "
+                             "no hi ha prou candidats (el parquet ja esta baixat "
+                             "sencer; aixo nomes limita CPU de decodificacio)")
+    parser.add_argument("--durada-min", type=float, default=DURADA_MIN_S,
+                        help="Durada minima d'un clip per publicar-lo TOT SOL "
+                             "(OmniVoice recomana 3-10s). Nomes s'empalmen clips "
+                             "quan cap clip solt del locutor hi arriba.")
     parser.add_argument("--durada-max", type=float, default=DURADA_MAX_S)
     parser.add_argument("--normalitzacio", default="lufs", choices=["lufs", "peak"],
                         help="'lufs' = -23 LUFS amb sostre de pic; 'peak' = pic a -1 dBFS")
@@ -1036,6 +1002,11 @@ def main():
                              "descartaria la majoria")
     parser.add_argument("--min-ratio-parla", type=float, default=MIN_RATIO_PARLA)
     parser.add_argument("--min-puntuacio", type=float, default=MIN_PUNTUACIO)
+    parser.add_argument("--llindar-duplicat", type=float, default=0.75,
+                        help="Similitud de veu (embedding ECAPA-TDNN, 0-1) per "
+                             "sobre de la qual un candidat es descarta com a "
+                             "possible duplicat d'un locutor ja acceptat. <= 0 "
+                             "desactiva la comprovacio (no cal speechbrain)")
     parser.add_argument("--llavor", type=int, default=42)
     parser.add_argument("--token", default=None,
                         help="Token de HF; per defecte, HF_TOKEN de l'entorn o la "
@@ -1053,17 +1024,26 @@ def main():
     vad = None if args.dry_run else DetectorVeu(args.vad)
     if vad:
         print(f"VAD: {vad.backend}")
+    comparador = None if args.dry_run else ComparadorLocutors(args.llindar_duplicat)
+    if comparador and comparador.actiu:
+        print(f"Comprovacio de duplicats: activa (llindar={args.llindar_duplicat})")
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Repartiment de places entre fonts: la darrera s'endu el residu de la divisio.
     quotes = {f: args.n_locutors // len(args.sources) for f in args.sources}
     quotes[args.sources[-1]] += args.n_locutors - sum(quotes.values())
 
+    existents = _locutors_existents(args.output_dir)
+    acceptats = _embeddings_existents(args.output_dir) if comparador and comparador.actiu else {}
+
     entrades = {}
     if "common_voice" in args.sources:
-        entrades.update(dict(_construir_cv(args, vad, quotes["common_voice"])))
+        entrades.update(dict(_construir_cv(
+            args, vad, quotes["common_voice"], existents["common_voice"],
+            comparador=comparador, acceptats=acceptats)))
     if "voxpopuli" in args.sources:
-        entrades.update(dict(_construir_voxpopuli(args, vad, quotes["voxpopuli"])))
+        entrades.update(dict(_construir_voxpopuli(
+            args, vad, quotes["voxpopuli"], existents["voxpopuli"],
+            comparador=comparador, acceptats=acceptats)))
 
     if args.dry_run:
         print("\n(dry-run: no s'ha processat ni escrit cap audio)")

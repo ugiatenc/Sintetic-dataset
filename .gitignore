@@ -1,34 +1,61 @@
-# Entorn virtual
+# Entorns i eines
 .venv/
-
-# Python
+.vscode/
+.claude/
 __pycache__/
 *.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+**/config.ini
+
+# Caches (models de HuggingFace i respostes de Claude)
+.hf_cache/
+.cache_claude/
+
+# Àudio, models i fitxers pesants
 *.wav
 *.mp3
+*.flac
+*.ogg
 *.pt
 *.safetensors
-.env
-.vscode/
-.hf_cache/
-.pytest_cache/
+*.pptx
+*.pdf
+*.tar.gz
 
-# Jupyter
-.ipynb_checkpoints/
+# Restes d'execució
+*.log
+*.pid
+*.part
+output_whisper_*/
 
-# OTHERS
-tests/
-data/
+# Dades de treball i producte: regenerables i de GB.
+# Es pugen només les normes i els diccionaris (calen per executar el pipeline)
+# i la definició del test.
+data/*
+!data/aranes/
+data/aranes/*
+!data/aranes/entitats/
+datasets/*
+!datasets/aranes/
+datasets/aranes/*
+!datasets/aranes/README.md
+!datasets/aranes/test/
+datasets/aranes/test/*
+!datasets/aranes/test/README.md
+!datasets/aranes/test/manifest.jsonl
+
+# Material local que no és del repositori
 others/
-datasets/
+presentacions/
+tests/
+lab/referencies/
+lab/generate_scenarios.ipynb
+lab/proves_inicials/es/
+lab/proves_inicials/**/audios/
+lab/proves_inicials/**/cache_llm/
 lab/datasets/
 lab/entitats/
 lab/inputs/
 lab/outputs/
-lab/proves_inicials/
-lab/context_claude.md
-lab/generate_scenarios.ipynb
-**/config.ini
-
-# Cache de models de HuggingFace (la de ~/.cache/huggingface és de root en aquesta màquina)
-.hf_cache/
